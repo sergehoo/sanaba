@@ -1,0 +1,427 @@
+# English translations for SANABA site.
+msgid ""
+msgstr ""
+"Project-Id-Version: sanaba 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-16 21:10+0000\n"
+"PO-Revision-Date: 2025-09-16 21:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: en\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/index.html:8
+msgid "SANABA — Transformation Digitale"
+msgstr "SANABA — Digital Transformation"
+
+#: templates/index.html:9
+msgid ""
+"SANABA spécialisée en transformation digitale, data IA, cloud et expérience "
+"utilisateur."
+msgstr ""
+"SANABA specializes in digital transformation, data & AI, cloud, and user "
+"experience."
+
+#: templates/index.html:132 templates/index.html:184 templates/index.html:490
+msgid "Accueil"
+msgstr "Home"
+
+#: templates/index.html:134 templates/index.html:185 templates/index.html:240
+msgid "Nos services"
+msgstr "Our services"
+
+#: templates/index.html:137 templates/index.html:249
+msgid "Data & IA"
+msgstr "Data & AI"
+
+#: templates/index.html:138
+msgid "Valorisez vos données et accélérez la prise de décision."
+msgstr "Leverage your data and accelerate decision-making."
+
+#: templates/index.html:141 templates/index.html:258
+msgid "Cloud & Sécurité"
+msgstr "Cloud & Security"
+
+#: templates/index.html:142
+#, fuzzy
+#| msgid "Migration, zero-trust, conformité et résilience."
+msgid "Migration, zero‑trust, conformité et résilience."
+msgstr "Migration, zero-trust, compliance, and resilience."
+
+#: templates/index.html:145 templates/index.html:265 templates/index.html:267
+msgid "Ingénierie Logicielle"
+msgstr "Software Engineering"
+
+#: templates/index.html:146
+msgid "Logiciels fiables, scalables, maintenables."
+msgstr "Reliable, scalable, maintainable software."
+
+#: templates/index.html:149 templates/index.html:276
+msgid "UX & Recherche"
+msgstr "UX & Research"
+
+#: templates/index.html:150
+msgid "Concevoir avec les utilisateurs, mesurer et itérer."
+msgstr "Design with users, measure, and iterate."
+
+#: templates/index.html:153 templates/index.html:283 templates/index.html:285
+msgid "Delivery Management"
+msgstr "Delivery Management"
+
+#: templates/index.html:154
+#, fuzzy
+#| msgid "Pilotage agile, PMO, qualité et time-to-value."
+msgid "Pilotage agile, PMO, qualité et time‑to‑value."
+msgstr "Agile governance, PMO, quality, and time-to-value."
+
+#: templates/index.html:157 templates/index.html:292 templates/index.html:294
+msgid "Conseil Métier"
+msgstr "Business Consulting"
+
+#: templates/index.html:158
+msgid "Cadrage stratégique, trajectoire et ROI."
+msgstr "Strategic framing, roadmap, and ROI."
+
+#: templates/index.html:162 templates/index.html:186
+msgid "Insights"
+msgstr "Insights"
+
+#: templates/index.html:163 templates/index.html:187 templates/index.html:493
+msgid "Carrières"
+msgstr "Careers"
+
+#: templates/index.html:164 templates/index.html:188
+msgid "Nous contacter"
+msgstr "Contact us"
+
+#: templates/index.html:201
+msgid "Transformation digitale centrée sur l'humain"
+msgstr "Human-centered digital transformation"
+
+#: templates/index.html:202
+msgid ""
+"Nous aidons les organisations à simplifier la technologie et à créer des "
+"services utiles, accessibles et dignes de confiance."
+msgstr ""
+"We help organizations simplify technology and create services that are "
+"useful, accessible, and trustworthy."
+
+#: templates/index.html:204
+msgid "Découvrir nos services"
+msgstr "Explore our services"
+
+#: templates/index.html:205
+msgid "Mettre en pause l'animation"
+msgstr "Pause the animation"
+
+#: templates/index.html:205
+msgid "Pause"
+msgstr "Pause"
+
+#: templates/index.html:206
+msgid "Lire l'animation"
+msgstr "Play the animation"
+
+#: templates/index.html:206
+msgid "Lecture"
+msgstr "Play"
+
+#: templates/index.html:211
+msgid "Équipe travaillant sur un projet digital"
+msgstr "Team working on a digital project"
+
+#: templates/index.html:214
+msgid "Méthodes agiles et collaboration forte"
+msgstr "Agile methods and strong collaboration"
+
+#: templates/index.html:215
+msgid "Excellence d'exécution et qualité logicielle"
+msgstr "Execution excellence and software quality"
+
+#: templates/index.html:216
+msgid "Mesure d'impact et amélioration continue"
+msgstr "Impact measurement and continuous improvement"
+
+#: templates/index.html:226
+msgid "Ce que nous faisons"
+msgstr "What we do"
+
+#: templates/index.html:227
+msgid ""
+"Depuis 2007, nous accompagnons secteurs public et privé avec des solutions "
+"pragmatiques et centrées utilisateurs. Notre approche combine expertise "
+"technique et compréhension métier pour créer des solutions digitales qui ont "
+"un impact réel."
+msgstr ""
+"Since 2007, we’ve supported public and private sectors with pragmatic, user-"
+"centered solutions. Our approach blends technical expertise and business "
+"understanding to deliver digital solutions with real impact."
+
+#: templates/index.html:229
+msgid "+150 projets livrés"
+msgstr "150+ projects delivered"
+
+#: templates/index.html:230
+msgid "Certifié AWS Partner"
+msgstr "AWS Partner Certified"
+
+#: templates/index.html:231
+msgid "Équipe de 45 experts"
+msgstr "Team of 45 experts"
+
+#: templates/index.html:241
+#, fuzzy
+#| msgid ""
+#| "De la stratégie à la livraison, une couverture bout-en-bout de votre "
+#| "transformation digitale."
+msgid ""
+"De la stratégie à la livraison, une couverture bout‑en‑bout de votre "
+"transformation digitale."
+msgstr ""
+"From strategy to delivery, end-to-end coverage of your digital "
+"transformation."
+
+#: templates/index.html:247
+msgid "Data et Intelligence Artificielle"
+msgstr "Data and Artificial Intelligence"
+
+#: templates/index.html:250
+msgid "Gouvernance, plateformes, analytique, IA appliquée, MLOps."
+msgstr "Governance, platforms, analytics, applied AI, MLOps."
+
+#: templates/index.html:251 templates/index.html:260 templates/index.html:269
+#: templates/index.html:278 templates/index.html:287 templates/index.html:296
+msgid "En savoir plus"
+msgstr "Learn more"
+
+#: templates/index.html:256
+msgid "Cloud et Sécurité"
+msgstr "Cloud and Security"
+
+#: templates/index.html:259
+msgid "Stratégie cloud, migration, FinOps, SecOps, conformité."
+msgstr "Cloud strategy, migration, FinOps, SecOps, compliance."
+
+#: templates/index.html:268
+#, fuzzy
+#| msgid "Back-end, front-end, mobile, APIs, tests, CI/CD."
+msgid "Back‑end, front‑end, mobile, APIs, tests, CI/CD."
+msgstr "Back-end, front-end, mobile, APIs, testing, CI/CD."
+
+#: templates/index.html:274
+msgid "UX et Recherche"
+msgstr "UX and Research"
+
+#: templates/index.html:277
+msgid "Découverte, tests utilisateurs, accessibilité, design systems."
+msgstr "Discovery, user testing, accessibility, design systems."
+
+#: templates/index.html:286
+msgid "Gestion de programmes/projets, QA, excellence opérationnelle."
+msgstr "Program/project management, QA, operational excellence."
+
+#: templates/index.html:295
+msgid "Cadrage, transformation, change, formation."
+msgstr "Framing, transformation, change, training."
+
+#: templates/index.html:305
+msgid "Ils nous font confiance"
+msgstr "They trust us"
+
+#: templates/index.html:306
+msgid "Découvrez quelques-uns de nos partenaires et clients"
+msgstr "Discover some of our partners and clients"
+
+#: templates/index.html:354
+msgid "Témoignages"
+msgstr "Testimonials"
+
+#: templates/index.html:358
+msgid ""
+"« Equipe très professionnelle, autonome et proactive. Intégration fluide et "
+"forte culture de collaboration. »"
+msgstr ""
+"“A very professional, autonomous, and proactive team. Smooth integration and "
+"a strong culture of collaboration.”"
+
+#: templates/index.html:362
+msgid "Pierre Martin, CTO"
+msgstr "Pierre Martin, CTO"
+
+#: templates/index.html:363
+msgid "Startup FinTech"
+msgstr "FinTech startup"
+
+#: templates/index.html:369
+msgid ""
+"« Approche flexible, pragmatique et collégiale. Un partenaire de confiance, "
+"orienté résultats. »"
+msgstr ""
+"“Flexible, pragmatic, and collaborative approach. A results-oriented, "
+"trusted partner.”"
+
+#: templates/index.html:373
+msgid "Sophie Dubois"
+msgstr "Sophie Dubois"
+
+#: templates/index.html:374
+msgid "Directrice Architecture Digitale — Secteur public"
+msgstr "Director of Digital Architecture — Public sector"
+
+#: templates/index.html:387
+msgid "Études de cas à la une"
+msgstr "Featured case studies"
+
+#: templates/index.html:388
+msgid ""
+"Découvrez comment nous avons aidé nos clients à réussir leur transformation "
+"digitale."
+msgstr "See how we helped our clients succeed in their digital transformation."
+
+#: templates/index.html:390
+msgid "Voir toutes les études"
+msgstr "See all case studies"
+
+#: templates/index.html:397
+msgid "Projet data et analytique"
+msgstr "Data & analytics project"
+
+#: templates/index.html:400
+msgid "Modernisation de plateforme data"
+msgstr "Data platform modernization"
+
+#: templates/index.html:401
+msgid ""
+"Migration cloud et implémentation d'une solution data lake pour un acteur de "
+"l'assurance."
+msgstr ""
+"Cloud migration and implementation of a data-lake solution for an insurance "
+"player."
+
+#: templates/index.html:402 templates/index.html:414 templates/index.html:426
+msgid "Lire l'étude"
+msgstr "Read the case study"
+
+#: templates/index.html:409
+msgid "Projet transformation digitale"
+msgstr "Digital transformation project"
+
+#: templates/index.html:412
+msgid "Refonte UX pour une app grand public"
+msgstr "UX redesign for a consumer app"
+
+#: templates/index.html:413
+#, python-format
+msgid ""
+"Amélioration de l'expérience utilisateur et augmentation du taux de "
+"conversion de 40%%."
+msgstr "Improved user experience and increased conversion rate by 40%%."
+
+#: templates/index.html:421
+msgid "Projet développement agile"
+msgstr "Agile development project"
+
+#: templates/index.html:424
+msgid "Implémentation DevOps"
+msgstr "DevOps implementation"
+
+#: templates/index.html:425
+msgid ""
+"Mise en place d'une culture DevOps et automatisation des déploiements pour "
+"réduire le time-to-market."
+msgstr ""
+"Establishing a DevOps culture and automating deployments to reduce time-to-"
+"market."
+
+#: templates/index.html:438
+msgid "Rejoignez l'aventure"
+msgstr "Join the journey"
+
+#: templates/index.html:439
+msgid ""
+"Projets agiles, défis techniques, progression de carrière : découvrez nos "
+"offres et notre programme de stages."
+msgstr ""
+"Agile projects, technical challenges, career growth: explore our openings "
+"and internship program."
+
+#: templates/index.html:441
+msgid "Voir les postes"
+msgstr "See open roles"
+
+#: templates/index.html:442
+msgid "Programme de stages"
+msgstr "Internship program"
+
+#: templates/index.html:446
+msgid "Équipe de l'SANABA"
+msgstr "Team at SANABA"
+
+#: templates/index.html:455
+msgid "Un projet en tête ?"
+msgstr "Got a project in mind?"
+
+#: templates/index.html:456
+msgid ""
+"Parlons de vos objectifs et de comment créer de la valeur mesurable "
+"rapidement."
+msgstr "Let’s discuss your goals and how to create measurable value quickly."
+
+#: templates/index.html:457
+msgid "Discuter de votre prochain projet"
+msgstr "Discuss your next project"
+
+#: templates/index.html:469
+msgid ""
+"Votre partenaire pour la transformation digitale. Expertise, agilité et "
+"résultats mesurables."
+msgstr ""
+"Your partner for digital transformation. Expertise, agility, and measurable "
+"results."
+
+#: templates/index.html:488
+msgid "Liens"
+msgstr "Links"
+
+#: templates/index.html:491
+msgid "Services"
+msgstr "Services"
+
+#: templates/index.html:492
+msgid "Études de cas"
+msgstr "Case studies"
+
+#: templates/index.html:494
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/index.html:498
+msgid "Informations"
+msgstr "Information"
+
+#: templates/index.html:500
+msgid "Politique de confidentialité"
+msgstr "Privacy policy"
+
+#: templates/index.html:501
+msgid "Cookies"
+msgstr "Cookies"
+
+#: templates/index.html:502
+msgid "Accessibilité"
+msgstr "Accessibility"
+
+#: templates/index.html:503
+msgid "Plan de réduction carbone"
+msgstr "Carbon reduction plan"
+
+#: templates/index.html:507
+msgid "Bureau principal"
+msgstr "Head office"
+
+#: templates/index.html:515
+msgid "Tous droits réservés."
+msgstr "All rights reserved."

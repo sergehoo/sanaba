@@ -1,10 +1,1760 @@
+{#{% load i18n %}#}
+{#{% get_current_language as LANGUAGE_CODE %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">#}
+{#<head>#}
+{#  <meta charset="utf-8" />#}
+{#  <meta name="viewport" content="width=device-width, initial-scale=1" />#}
+{#  <title>{% trans "SANABA — Transformation Digitale" %}</title>#}
+{#  <meta name="description" content="{% trans "SANABA spécialisée en transformation digitale, data IA, cloud et expérience utilisateur." %}" />#}
+{#  <script src="https://cdn.tailwindcss.com"></script>#}
+{#  <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
+{#  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">#}
+{#  <script>#}
+{#    tailwind.config = {#}
+{#      theme: {#}
+{#        fontFamily: {#}
+{#          sans: ['Inter', 'sans-serif'],#}
+{#        },#}
+{#        extend: {#}
+{#          colors: {#}
+{#            primary: {#}
+{#              50: '#f0f9ff',#}
+{#              100: '#e0f2fe',#}
+{#              200: '#bae6fd',#}
+{#              300: '#7dd3fc',#}
+{#              400: '#38bdf8',#}
+{#              500: '#0ea5e9',#}
+{#              600: '#0284c7',#}
+{#              700: '#0369a1',#}
+{#              800: '#075985',#}
+{#              900: '#0c4a6e',#}
+{#            },#}
+{#            secondary: {#}
+{#              50: '#fdf4ff',#}
+{#              100: '#fae8ff',#}
+{#              200: '#f5d0fe',#}
+{#              300: '#f0abfc',#}
+{#              400: '#e879f9',#}
+{#              500: '#d946ef',#}
+{#              600: '#c026d3',#}
+{#              700: '#a21caf',#}
+{#              800: '#86198f',#}
+{#              900: '#701a75',#}
+{#            }#}
+{#          }#}
+{#        }#}
+{#      }#}
+{#    }#}
+{#  </script>#}
+{#  <style>#}
+{#    /* Animations améliorées */#}
+{#    @keyframes fadeInUp {#}
+{#      0% { opacity:0; transform: translateY(20px); }#}
+{#      100% { opacity:1; transform: translateY(0);}#}
+{#    }#}
+{#    .fade-in-up { animation: fadeInUp .7s ease both; }#}
+{##}
+{#    @keyframes marquee {#}
+{#      0% { transform: translateX(0); }#}
+{#      100% { transform: translateX(-50%); }#}
+{#    }#}
+{#    .marquee { animation: marquee 18s linear infinite; }#}
+{#    .paused { animation-play-state: paused !important; }#}
+{##}
+{#    @keyframes float {#}
+{#      0% { transform: translateY(0px); }#}
+{#      50% { transform: translateY(-10px); }#}
+{#      100% { transform: translateY(0px); }#}
+{#    }#}
+{#    .float { animation: float 6s ease-in-out infinite; }#}
+{##}
+{#    @keyframes pulse {#}
+{#      0% { transform: scale(1); }#}
+{#      50% { transform: scale(1.05); }#}
+{#      100% { transform: scale(1); }#}
+{#    }#}
+{#    .pulse { animation: pulse 4s ease-in-out infinite; }#}
+{##}
+{#    /* Styles personnalisés améliorés */#}
+{#    .gradient-bg {#}
+{#      background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);#}
+{#    }#}
+{#    .gradient-text {#}
+{#      background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);#}
+{#      -webkit-background-clip: text;#}
+{#      -webkit-text-fill-color: transparent;#}
+{#      background-clip: text;#}
+{#    }#}
+{#    .service-card {#}
+{#      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);#}
+{#    }#}
+{#    .service-card:hover {#}
+{#      transform: translateY(-8px);#}
+{#      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);#}
+{#    }#}
+{#    .glass-effect {#}
+{#      background: rgba(255, 255, 255, 0.1);#}
+{#      backdrop-filter: blur(10px);#}
+{#      border: 1px solid rgba(255, 255, 255, 0.2);#}
+{#    }#}
+{#    .text-shadow {#}
+{#      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);#}
+{#    }#}
+{##}
+{#    /* Scroll personnalisé */#}
+{#    ::-webkit-scrollbar {#}
+{#      width: 8px;#}
+{#    }#}
+{#    ::-webkit-scrollbar-track {#}
+{#      background: #f1f1f1;#}
+{#    }#}
+{#    ::-webkit-scrollbar-thumb {#}
+{#      background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);#}
+{#      border-radius: 4px;#}
+{#    }#}
+{#    ::-webkit-scrollbar-thumb:hover {#}
+{#      background: linear-gradient(135deg, #0284c7 0%, #c026d3 100%);#}
+{#    }#}
+{#  </style>#}
+{#     <script src="https://cdn.tailwindcss.com"></script>#}
+{#    <script>#}
+{#        tailwind.config = {#}
+{#            theme: {#}
+{#                extend: {#}
+{#                    colors: {#}
+{#                        primary: {#}
+{#                            50: '#eff6ff',#}
+{#                            100: '#dbeafe',#}
+{#                            200: '#bfdbfe',#}
+{#                            300: '#93c5fd',#}
+{#                            400: '#60a5fa',#}
+{#                            500: '#3b82f6',#}
+{#                            600: '#2563eb',#}
+{#                            700: '#1d4ed8',#}
+{#                            800: '#1e40af',#}
+{#                            900: '#1e3a8a',#}
+{#                        },#}
+{#                        secondary: {#}
+{#                            100: '#f0fdfa',#}
+{#                            200: '#ccfbf1',#}
+{#                            300: '#5eead4',#}
+{#                        },#}
+{#                        neutral: {#}
+{#                            50: '#fafafa',#}
+{#                            100: '#f4f4f5',#}
+{#                            200: '#e4e4e7',#}
+{#                            300: '#d4d4d8',#}
+{#                            400: '#a1a1aa',#}
+{#                            500: '#71717a',#}
+{#                            600: '#52525b',#}
+{#                            700: '#3f3f46',#}
+{#                            800: '#27272a',#}
+{#                            900: '#18181b',#}
+{#                        }#}
+{#                    },#}
+{#                    fontFamily: {#}
+{#                        sans: ['Inter', 'sans-serif'],#}
+{#                    },#}
+{#                    animation: {#}
+{#                        'marquee': 'marquee 25s linear infinite',#}
+{#                    },#}
+{#                    keyframes: {#}
+{#                        marquee: {#}
+{#                            '0%': { transform: 'translateX(0)' },#}
+{#                            '100%': { transform: 'translateX(-50%)' },#}
+{#                        }#}
+{#                    }#}
+{#                }#}
+{#            }#}
+{#        }#}
+{#    </script>#}
+{#    <style>#}
+{#        .gradient-bg {#}
+{#            background: linear-gradient(270deg, #3b82f6, #60a5fa, #93c5fd, #bfdbfe);#}
+{#            background-size: 800% 800%;#}
+{#            animation: gradientShift 15s ease infinite;#}
+{#        }#}
+{#        #}
+{#        @keyframes gradientShift {#}
+{#            0% { background-position: 0% 50%; }#}
+{#            50% { background-position: 100% 50%; }#}
+{#            100% { background-position: 0% 50%; }#}
+{#        }#}
+{#        #}
+{#        .glass-effect {#}
+{#            background: rgba(255, 255, 255, 0.15);#}
+{#            backdrop-filter: blur(10px);#}
+{#            -webkit-backdrop-filter: blur(10px);#}
+{#            border: 1px solid rgba(255, 255, 255, 0.18);#}
+{#        }#}
+{#        #}
+{#        .text-shadow {#}
+{#            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);#}
+{#        }#}
+{#        #}
+{#        .fade-in-up {#}
+{#            opacity: 0;#}
+{#            transform: translateY(20px);#}
+{#            animation: fadeInUp 0.8s ease forwards;#}
+{#        }#}
+{#        #}
+{#        @keyframes fadeInUp {#}
+{#            to {#}
+{#                opacity: 1;#}
+{#                transform: translateY(0);#}
+{#            }#}
+{#        }#}
+{#        #}
+{#        .slide {#}
+{#            opacity: 0;#}
+{#            transition: opacity 0.8s ease;#}
+{#            position: absolute;#}
+{#            top: 0;#}
+{#            left: 0;#}
+{#            width: 100%;#}
+{#            height: 100%;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#        }#}
+{#        #}
+{#        .slide.active {#}
+{#            opacity: 1;#}
+{#            z-index: 10;#}
+{#        }#}
+{#        #}
+{#        .carousel-container {#}
+{#            position: relative;#}
+{#            height: 650px;#}
+{#            overflow: hidden;#}
+{#        }#}
+{#        #}
+{#        .carousel-dots {#}
+{#            display: flex;#}
+{#            justify-content: center;#}
+{#            position: absolute;#}
+{#            bottom: 20px;#}
+{#            left: 0;#}
+{#            right: 0;#}
+{#            z-index: 20;#}
+{#        }#}
+{#        #}
+{#        .carousel-dot {#}
+{#            width: 12px;#}
+{#            height: 12px;#}
+{#            border-radius: 50%;#}
+{#            background: rgba(255, 255, 255, 0.5);#}
+{#            margin: 0 5px;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#        }#}
+{#        #}
+{#        .carousel-dot.active {#}
+{#            background: white;#}
+{#            transform: scale(1.2);#}
+{#        }#}
+{#        #}
+{#        .carousel-nav {#}
+{#            position: absolute;#}
+{#            top: 50%;#}
+{#            transform: translateY(-50%);#}
+{#            z-index: 20;#}
+{#            background: rgba(255, 255, 255, 0.2);#}
+{#            width: 40px;#}
+{#            height: 40px;#}
+{#            border-radius: 50%;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#        }#}
+{#        #}
+{#        .carousel-nav:hover {#}
+{#            background: rgba(255, 255, 255, 0.3);#}
+{#        }#}
+{#        #}
+{#        .carousel-nav.prev {#}
+{#            left: 20px;#}
+{#        }#}
+{#        #}
+{#        .carousel-nav.next {#}
+{#            right: 20px;#}
+{#        }#}
+{#        #}
+{#        @media (max-width: 768px) {#}
+{#            .carousel-nav {#}
+{#                display: none;#}
+{#            }#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body class="min-h-screen bg-neutral-50 text-neutral-900 selection:bg-primary-500 selection:text-white font-sans">#}
+{#  <!-- Header amélioré -->#}
+{#  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/80">#}
+{#    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">#}
+{#      <div class="flex items-center justify-between h-16">#}
+{#        <a class="flex items-center gap-3 group" href="#">#}
+{#          <div class="h-8 w-8 rounded-lg gradient-bg group-hover:pulse transition-all"></div>#}
+{#          <span class="font-semibold tracking-tight text-primary-800 group-hover:gradient-text transition-all">SANABA</span>#}
+{#        </a>#}
+{#        <nav class="hidden md:flex items-center gap-6 text-sm">#}
+{#          <a href="#" class="hover:text-primary-600 transition-colors font-medium">{% trans "Accueil" %}</a>#}
+{#          <div class="relative group">#}
+{#            <button class="inline-flex items-center gap-2 hover:text-primary-600 transition-colors font-medium">{% trans "Nos services" %} <svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.354a.75.75 0 111.02 1.1l-4.2 3.8a.75.75 0 01-1.02 0l-4.2-3.8a.75.75 0 01-.02-1.06z"/></svg></button>#}
+{#            <div class="absolute left-0 mt-2 w-[640px] rounded-2xl border border-neutral-200 bg-white shadow-xl p-6 grid grid-cols-2 gap-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100">#}
+{#              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'services' %}">#}
+{#                <div class="font-medium text-primary-800">{% trans "Data & IA" %}</div>#}
+{#                <p class="text-xs text-neutral-500 mt-1">{% trans "Valorisez vos données et accélérez la prise de décision." %}</p>#}
+{#              </a>#}
+{#              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="#services-cloud-security">#}
+{#                <div class="font-medium text-primary-800">{% trans "Cloud & Sécurité" %}</div>#}
+{#                <p class="text-xs text-neutral-500 mt-1">{% trans "Migration, zero‑trust, conformité et résilience." %}</p>#}
+{#              </a>#}
+{#              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="#services-engineering">#}
+{#                <div class="font-medium text-primary-800">{% trans "Ingénierie Logicielle" %}</div>#}
+{#                <p class="text-xs text-neutral-500 mt-1">{% trans "Logiciels fiables, scalables, maintenables." %}</p>#}
+{#              </a>#}
+{#              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="#services-ux">#}
+{#                <div class="font-medium text-primary-800">{% trans "UX & Recherche" %}</div>#}
+{#                <p class="text-xs text-neutral-500 mt-1">{% trans "Concevoir avec les utilisateurs, mesurer et itérer." %}</p>#}
+{#              </a>#}
+{#              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="#services-delivery">#}
+{#                <div class="font-medium text-primary-800">{% trans "Delivery Management" %}</div>#}
+{#                <p class="text-xs text-neutral-500 mt-1">{% trans "Pilotage agile, PMO, qualité et time‑to‑value." %}</p>#}
+{#              </a>#}
+{#              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="#services-conseil">#}
+{#                <div class="font-medium text-primary-800">{% trans "Conseil Métier" %}</div>#}
+{#                <p class="text-xs text-neutral-500 mt-1">{% trans "Cadrage stratégique, trajectoire et ROI." %}</p>#}
+{#              </a>#}
+{#            </div>#}
+{#          </div>#}
+{#          <a href="#insights" class="hover:text-primary-600 transition-colors font-medium">{% trans "Insights" %}</a>#}
+{#          <a href="#careers" class="hover:text-primary-600 transition-colors font-medium">{% trans "Carrières" %}</a>#}
+{#          <a href="#contact" class="inline-flex items-center px-4 py-2 rounded-xl gradient-bg text-white hover:opacity-90 transition-all shadow-md hover:shadow-lg">{% trans "Nous contacter" %}</a>#}
+{#          <form action="{% url 'set_language' %}" method="post" class="ml-4">#}
+{#            {% csrf_token %}#}
+{#            <input type="hidden" name="next" value="{{ request.get_full_path }}">#}
+{#            <select name="language" class="border border-neutral-300 rounded-lg px-2 py-1 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent" onchange="this.form.submit()">#}
+{#              {% get_current_language as CURRENT %}#}
+{#              {% get_available_languages as LANGS %}#}
+{#              {% for code, name in LANGS %}#}
+{#                <option value="{{ code }}" {% if code == CURRENT %}selected{% endif %}>{{ name }}</option>#}
+{#              {% endfor %}#}
+{#            </select>#}
+{#          </form>#}
+{#        </nav>#}
+{##}
+{#        <button id="btnMobile" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-neutral-300 hover:border-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">☰</button>#}
+{#      </div>#}
+{#    </div>#}
+{#    <!-- mobile menu amélioré -->#}
+{#    <div id="mobileMenu" class="hidden md:hidden border-t border-neutral-200 bg-white/95 backdrop-blur-sm">#}
+{#      <div class="px-4 py-4 flex flex-col gap-3 text-sm">#}
+{#        <a href="#" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100">{% trans "Accueil" %}</a>#}
+{#        <a href="#services" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100">{% trans "Nos services" %}</a>#}
+{#        <a href="#insights" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100">{% trans "Insights" %}</a>#}
+{#        <a href="#careers" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100">{% trans "Carrières" %}</a>#}
+{#        <a href="#contact" class="mt-2 inline-flex items-center px-4 py-2 rounded-xl gradient-bg text-white w-max shadow-md">{% trans "Nous contacter" %}</a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </header>#}
+{##}
+{#  <!-- Hero avec Play/Pause amélioré -->#}
+{#<section class="relative overflow-hidden">#}
+{#        <div class="absolute inset-0">#}
+{#            <div id="heroAnim" class="h-full w-[200%] gradient-bg marquee"></div>#}
+{#        </div>#}
+{#        #}
+{#        <div class="carousel-container relative z-10">#}
+{#            <!-- Slide 1 -->#}
+{#            <div class="slide active">#}
+{#                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center h-full">#}
+{#                    <div class="text-white">#}
+{#                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-shadow">Transformation digitale centrée sur l'humain</h1>#}
+{#                        <p class="mt-6 text-neutral-100 max-w-xl text-lg">Nous aidons les organisations à simplifier la technologie et à créer des services utiles, accessibles et dignes de confiance.</p>#}
+{#                        <div class="mt-8 flex items-center gap-3 flex-wrap">#}
+{#                            <a href="#services" class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg">Découvrir nos services</a>#}
+{#                            <button id="btnPause" aria-label="Mettre en pause l'animation" class="px-4 py-2 rounded-xl glass-effect text-white hover:bg-white/20 transition-all">Pause</button>#}
+{#                            <button id="btnPlay" aria-label="Lire l'animation" class="px-4 py-2 rounded-xl glass-effect text-white hover:bg-white/20 transition-all">Lecture</button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="glass-effect rounded-2xl p-6 shadow-xl fade-in-up backdrop-blur-sm">#}
+{#                        <div class="aspect-video rounded-xl bg-gradient-to-br from-primary-100 to-secondary-100 grid place-items-center border border-primary-200/50 overflow-hidden">#}
+{#                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Équipe travaillant sur un projet digital" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />#}
+{#                        </div>#}
+{#                        <ul class="mt-6 space-y-3 text-sm text-neutral-600">#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Méthodes agiles et collaboration forte</li>#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Excellence d'exécution et qualité logicielle</li>#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Mesure d'impact et amélioration continue</li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            #}
+{#            <!-- Slide 2 -->#}
+{#            <div class="slide">#}
+{#                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center h-full">#}
+{#                    <div class="text-white">#}
+{#                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-shadow">Solutions innovantes pour votre entreprise</h1>#}
+{#                        <p class="mt-6 text-neutral-100 max-w-xl text-lg">Nous développons des applications sur mesure qui transforment vos processus métier et améliorent votre productivité.</p>#}
+{#                        <div class="mt-8 flex items-center gap-3 flex-wrap">#}
+{#                            <a href="#portfolio" class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg">Voir nos réalisations</a>#}
+{#                            <a href="#contact" class="px-6 py-3 rounded-xl glass-effect text-white font-medium hover:bg-white/20 transition-all shadow-md hover:shadow-lg">Nous contacter</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="glass-effect rounded-2xl p-6 shadow-xl backdrop-blur-sm">#}
+{#                        <div class="aspect-video rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 grid place-items-center border border-purple-200/50 overflow-hidden">#}
+{#                            <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Tableau de bord analytique" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />#}
+{#                        </div>#}
+{#                        <ul class="mt-6 space-y-3 text-sm text-neutral-600">#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Développement d'applications sur mesure</li>#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Interfaces intuitives et expérience utilisateur optimale</li>#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Solutions évolutives et maintenables</li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            #}
+{#            <!-- Slide 3 -->#}
+{#            <div class="slide">#}
+{#                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center h-full">#}
+{#                    <div class="text-white">#}
+{#                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-shadow">Data Intelligence & Analytics</h1>#}
+{#                        <p class="mt-6 text-neutral-100 max-w-xl text-lg">Transformez vos données en insights actionnables grâce à nos solutions d'analyse et de visualisation de données.</p>#}
+{#                        <div class="mt-8 flex items-center gap-3 flex-wrap">#}
+{#                            <a href="#data-services" class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg">Explorer nos solutions data</a>#}
+{#                            <a href="#case-studies" class="px-6 py-3 rounded-xl glass-effect text-white font-medium hover:bg-white/20 transition-all shadow-md hover:shadow-lg">Études de cas</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="glass-effect rounded-2xl p-6 shadow-xl backdrop-blur-sm">#}
+{#                        <div class="aspect-video rounded-xl bg-gradient-to-br from-green-100 to-blue-100 grid place-items-center border border-green-200/50 overflow-hidden">#}
+{#                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Visualisation de données" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />#}
+{#                        </div>#}
+{#                        <ul class="mt-6 space-y-3 text-sm text-neutral-600">#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Analyse de données avancée</li>#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Tableaux de bord interactifs et personnalisables</li>#}
+{#                            <li class="flex items-center gap-3"><span class="text-primary-600">✔️</span> Prédictions et machine learning</li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            #}
+{#            <!-- Navigation -->#}
+{#            <div class="carousel-nav prev">#}
+{#                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">#}
+{#                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>#}
+{#                </svg>#}
+{#            </div>#}
+{#            <div class="carousel-nav next">#}
+{#                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">#}
+{#                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>#}
+{#                </svg>#}
+{#            </div>#}
+{#            #}
+{#            <!-- Dots -->#}
+{#            <div class="carousel-dots">#}
+{#                <div class="carousel-dot active" data-slide="0"></div>#}
+{#                <div class="carousel-dot" data-slide="1"></div>#}
+{#                <div class="carousel-dot" data-slide="2"></div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{#   <script>#}
+{#        document.addEventListener('DOMContentLoaded', function() {#}
+{#            const slides = document.querySelectorAll('.slide');#}
+{#            const dots = document.querySelectorAll('.carousel-dot');#}
+{#            const prevBtn = document.querySelector('.carousel-nav.prev');#}
+{#            const nextBtn = document.querySelector('.carousel-nav.next');#}
+{#            const pauseBtn = document.getElementById('btnPause');#}
+{#            const playBtn = document.getElementById('btnPlay');#}
+{#            const heroAnim = document.getElementById('heroAnim');#}
+{#            #}
+{#            let currentSlide = 0;#}
+{#            let autoPlay = true;#}
+{#            let slideInterval;#}
+{#            #}
+{#            // Initialiser le carrousel#}
+{#            function initCarousel() {#}
+{#                // Démarrer l'autoplay#}
+{#                startAutoPlay();#}
+{#                #}
+{#                // Événements pour les boutons de navigation#}
+{#                prevBtn.addEventListener('click', () => {#}
+{#                    pauseAutoPlay();#}
+{#                    prevSlide();#}
+{#                });#}
+{#                #}
+{#                nextBtn.addEventListener('click', () => {#}
+{#                    pauseAutoPlay();#}
+{#                    nextSlide();#}
+{#                });#}
+{#                #}
+{#                // Événements pour les dots#}
+{#                dots.forEach(dot => {#}
+{#                    dot.addEventListener('click', function() {#}
+{#                        pauseAutoPlay();#}
+{#                        const slideIndex = parseInt(this.getAttribute('data-slide'));#}
+{#                        goToSlide(slideIndex);#}
+{#                    });#}
+{#                });#}
+{#                #}
+{#                // Événements pour pause/play#}
+{#                pauseBtn.addEventListener('click', pauseAutoPlay);#}
+{#                playBtn.addEventListener('click', startAutoPlay);#}
+{#            }#}
+{#            #}
+{#            // Aller à une slide spécifique#}
+{#            function goToSlide(n) {#}
+{#                slides[currentSlide].classList.remove('active');#}
+{#                dots[currentSlide].classList.remove('active');#}
+{#                #}
+{#                currentSlide = n;#}
+{#                #}
+{#                slides[currentSlide].classList.add('active');#}
+{#                dots[currentSlide].classList.add('active');#}
+{#            }#}
+{#            #}
+{#            // Slide suivante#}
+{#            function nextSlide() {#}
+{#                let next = currentSlide + 1;#}
+{#                if (next >= slides.length) next = 0;#}
+{#                goToSlide(next);#}
+{#            }#}
+{#            #}
+{#            // Slide précédente#}
+{#            function prevSlide() {#}
+{#                let prev = currentSlide - 1;#}
+{#                if (prev < 0) prev = slides.length - 1;#}
+{#                goToSlide(prev);#}
+{#            }#}
+{#            #}
+{#            // Démarrer l'autoplay#}
+{#            function startAutoPlay() {#}
+{#                if (autoPlay) return;#}
+{#                #}
+{#                autoPlay = true;#}
+{#                heroAnim.style.animationPlayState = 'running';#}
+{#                slideInterval = setInterval(nextSlide, 5000);#}
+{#            }#}
+{#            #}
+{#            // Mettre en pause l'autoplay#}
+{#            function pauseAutoPlay() {#}
+{#                if (!autoPlay) return;#}
+{#                #}
+{#                autoPlay = false;#}
+{#                heroAnim.style.animationPlayState = 'paused';#}
+{#                clearInterval(slideInterval);#}
+{#            }#}
+{#            #}
+{#            // Initialiser le carrousel#}
+{#            initCarousel();#}
+{#        });#}
+{#    </script>#}
+{##}
+{#  <!-- What we do / Intro amélioré -->#}
+{#  <section class="py-20" id="intro">#}
+{#    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">#}
+{#      <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Ce que nous faisons" %}</h2>#}
+{#      <p class="mt-6 text-neutral-600 text-lg">{% trans "Depuis 2007, nous accompagnons secteurs public et privé avec des solutions pragmatiques et centrées utilisateurs. Notre approche combine expertise technique et compréhension métier pour créer des solutions digitales qui ont un impact réel." %}</p>#}
+{#      <div class="mt-8 flex flex-wrap justify-center gap-4">#}
+{#        <span class="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium shadow-sm">{% trans "+150 projets livrés" %}</span>#}
+{#        <span class="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium shadow-sm">{% trans "Certifié AWS Partner" %}</span>#}
+{#        <span class="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium shadow-sm">{% trans "Équipe de 45 experts" %}</span>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Services amélioré -->#}
+{#  <section id="services" class="py-16 bg-white">#}
+{#    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">#}
+{#      <div class="text-center mb-12">#}
+{#        <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Nos services" %}</h2>#}
+{#        <p class="text-neutral-600 mt-4 max-w-2xl mx-auto text-lg">{% trans "De la stratégie à la livraison, une couverture bout‑en‑bout de votre transformation digitale." %}</p>#}
+{#      </div>#}
+{#      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">#}
+{#        <!-- Card service améliorée -->#}
+{#        {% for service in services %}#}
+{#{% with service_index=forloop.counter0|stringformat:"s" %}#}
+{#{% with color_class=service.slug|default:service_index %}#}
+{#<a id="services-{{ service.slug }}" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="{% url 'service_detail' service.slug %}">#}
+{#  <div class="aspect-[3/2] rounded-xl bg-gradient-to-br#}
+{#    {% if color_class == 'data-ai' or forloop.counter0 == 0 %}from-blue-50 to-blue-100 border-blue-200#}
+{#    {% elif color_class == 'cloud-security' or forloop.counter0 == 1 %}from-cyan-50 to-cyan-100 border-cyan-200#}
+{#    {% elif color_class == 'engineering' or forloop.counter0 == 2 %}from-violet-50 to-violet-100 border-violet-200#}
+{#    {% elif color_class == 'ux-research' or forloop.counter0 == 3 %}from-pink-50 to-pink-100 border-pink-200#}
+{#    {% elif color_class == 'delivery-management' or forloop.counter0 == 4 %}from-amber-50 to-amber-100 border-amber-200#}
+{#    {% elif color_class == 'business-consulting' or forloop.counter0 == 5 %}from-emerald-50 to-emerald-100 border-emerald-200#}
+{#    {% else %}from-blue-50 to-blue-100 border-blue-200{% endif %}#}
+{#    grid place-items-center border overflow-hidden">#}
+{##}
+{#    {% if service.image %}#}
+{#      <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />#}
+{#    {% else %}#}
+{#      <!-- Icône par défaut si aucune image n'est définie -->#}
+{#      <div class="w-full h-full flex items-center justify-center#}
+{#        {% if color_class == 'data-ai' or forloop.counter0 == 0 %}bg-blue-100#}
+{#        {% elif color_class == 'cloud-security' or forloop.counter0 == 1 %}bg-cyan-100#}
+{#        {% elif color_class == 'engineering' or forloop.counter0 == 2 %}bg-violet-100#}
+{#        {% elif color_class == 'ux-research' or forloop.counter0 == 3 %}bg-pink-100#}
+{#        {% elif color_class == 'delivery-management' or forloop.counter0 == 4 %}bg-amber-100#}
+{#        {% elif color_class == 'business-consulting' or forloop.counter0 == 5 %}bg-emerald-100#}
+{#        {% else %}bg-blue-100{% endif %}">#}
+{##}
+{#        {% if service.icon %}#}
+{#          <span class="text-4xl">{{ service.icon }}</span>#}
+{#        {% else %}#}
+{#          <svg class="w-12 h-12#}
+{#            {% if color_class == 'data-ai' or forloop.counter0 == 0 %}text-blue-600#}
+{#            {% elif color_class == 'cloud-security' or forloop.counter0 == 1 %}text-cyan-600#}
+{#            {% elif color_class == 'engineering' or forloop.counter0 == 2 %}text-violet-600#}
+{#            {% elif color_class == 'ux-research' or forloop.counter0 == 3 %}text-pink-600#}
+{#            {% elif color_class == 'delivery-management' or forloop.counter0 == 4 %}text-amber-600#}
+{#            {% elif color_class == 'business-consulting' or forloop.counter0 == 5 %}text-emerald-600#}
+{#            {% else %}text-blue-600{% endif %}"#}
+{#            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">#}
+{#            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>#}
+{#          </svg>#}
+{#        {% endif %}#}
+{#      </div>#}
+{#    {% endif %}#}
+{#  </div>#}
+{#  <h3 class="mt-5 font-semibold text-primary-800 text-lg">{{ service.name }}</h3>#}
+{#  <p class="text-neutral-600 mt-2">{{ service.short_description }}</p>#}
+{#  <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">#}
+{#    {% trans "En savoir plus" %}#}
+{#    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">#}
+{#      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>#}
+{#    </svg>#}
+{#  </span>#}
+{#</a>#}
+{#{% endwith %}#}
+{#{% endwith %}#}
+{#{% endfor %}#}
+{##}
+{#        <a id="services-cloud-security" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">#}
+{#          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-cyan-50 to-cyan-100 grid place-items-center border border-cyan-200 overflow-hidden">#}
+{#            <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Cloud et Sécurité" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />#}
+{#          </div>#}
+{#          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Cloud & Sécurité" %}</h3>#}
+{#          <p class="text-neutral-600 mt-2">{% trans "Stratégie cloud, migration, FinOps, SecOps, conformité." %}</p>#}
+{#          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#        </a>#}
+{#        #}
+{#        <a id="services-engineering" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">#}
+{#          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-violet-50 to-violet-100 grid place-items-center border border-violet-200 overflow-hidden">#}
+{#            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Ingénierie Logicielle" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />#}
+{#          </div>#}
+{#          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Ingénierie Logicielle" %}</h3>#}
+{#          <p class="text-neutral-600 mt-2">{% trans "Back‑end, front‑end, mobile, APIs, tests, CI/CD." %}</p>#}
+{#          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#        </a>#}
+{#        #}
+{#        <a id="services-ux" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">#}
+{#          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 grid place-items-center border border-pink-200 overflow-hidden">#}
+{#            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "UX et Recherche" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />#}
+{#          </div>#}
+{#          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "UX & Recherche" %}</h3>#}
+{#          <p class="text-neutral-600 mt-2">{% trans "Découverte, tests utilisateurs, accessibilité, design systems." %}</p>#}
+{#          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#        </a>#}
+{#        #}
+{#        <a id="services-delivery" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">#}
+{#          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 grid place-items-center border border-amber-200 overflow-hidden">#}
+{#            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Delivery Management" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />#}
+{#          </div>#}
+{#          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Delivery Management" %}</h3>#}
+{#          <p class="text-neutral-600 mt-2">{% trans "Gestion de programmes/projets, QA, excellence opérationnelle." %}</p>#}
+{#          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#        </a>#}
+{#        #}
+{#        <a id="services-conseil" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">#}
+{#          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 grid place-items-center border border-emerald-200 overflow-hidden">#}
+{#            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Conseil Métier" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />#}
+{#          </div>#}
+{#          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Conseil Métier" %}</h3>#}
+{#          <p class="text-neutral-600 mt-2">{% trans "Cadrage, transformation, change, formation." %}</p>#}
+{#          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#        </a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Logos clients (marquee) amélioré -->#}
+{#  <section class="py-16 bg-white border-y border-neutral-200">#}
+{#    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">#}
+{#      <h2 class="text-2xl font-bold tracking-tight text-primary-800 text-center mb-2">{% trans "Ils nous font confiance" %}</h2>#}
+{#      <p class="text-neutral-600 text-center mb-10">{% trans "Découvrez quelques-uns de nos partenaires et clients" %}</p>#}
+{#      <div class="relative overflow-hidden mt-6">#}
+{#        <div class="flex gap-16 whitespace-nowrap marquee" id="logosStrip">#}
+{#          <!-- Dupliquez la série pour l'effet infini -->#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-primary-600 rounded-sm opacity-70">TRATRA</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-secondary-600 rounded-sm opacity-70">IPCI</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-primary-700 rounded-sm opacity-70">INHP</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-secondary-700 rounded-sm opacity-70">SMIT</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-primary-800 rounded-sm opacity-70">GOUV.CI</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-secondary-800 rounded-sm opacity-70">TRACEAGRI</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-primary-600 rounded-sm opacity-70">SANTE CI</div>#}
+{#          </div>#}
+{#          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">#}
+{#            <div class="h-10 w-full bg-secondary-600 rounded-sm opacity-70">AFRIQCONSULTING</div>#}
+{#          </div>#}
+{##}
+{##}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Témoignages amélioré -->#}
+{#  <section class="py-20 bg-neutral-50" id="temoignages">#}
+{#    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">#}
+{#      <h2 class="text-3xl font-bold tracking-tight text-primary-800 text-center mb-12">{% trans "Témoignages" %}</h2>#}
+{#      <div class="mt-6 grid lg:grid-cols-2 gap-8">#}
+{#        <article class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow group">#}
+{#          <div class="text-primary-600 text-5xl mb-4">"</div>#}
+{#          <p class="text-neutral-700 text-lg italic">{% trans "« Equipe très professionnelle, autonome et proactive. Intégration fluide et forte culture de collaboration. »" %}</p>#}
+{#          <div class="mt-6 flex items-center gap-4">#}
+{#            <div class="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 font-medium text-lg group-hover:float">CT</div>#}
+{#            <div>#}
+{#              <div class="text-md font-semibold">{% trans "Pierre Martin, CTO" %}</div>#}
+{#              <div class="text-sm text-neutral-500">{% trans "Startup FinTech" %}</div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </article>#}
+{#        <article class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow group">#}
+{#          <div class="text-primary-600 text-5xl mb-4">"</div>#}
+{#          <p class="text-neutral-700 text-lg italic">{% trans "« Approche flexible, pragmatique et collégiale. Un partenaire de confiance, orienté résultats. »" %}</p>#}
+{#          <div class="mt-6 flex items-center gap-4">#}
+{#            <div class="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 font-medium text-lg group-hover:float">DA</div>#}
+{#            <div>#}
+{#              <div class="text-md font-semibold">{% trans "Sophie Dubois" %}</div>#}
+{#              <div class="text-sm text-neutral-500">{% trans "Directrice Architecture Digitale — Secteur public" %}</div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </article>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Études de cas amélioré -->#}
+{#  <section class="py-20 bg-white border-y border-neutral-200" id="insights">#}
+{#    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">#}
+{#      <div class="flex items-end justify-between gap-4 mb-12">#}
+{#        <div>#}
+{#          <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Études de cas à la une" %}</h2>#}
+{#          <p class="text-neutral-600 mt-2">{% trans "Découvrez comment nous avons aidé nos clients à réussir leur transformation digitale." %}</p>#}
+{#        </div>#}
+{#        <a href="#" class="text-primary-600 hover:text-primary-800 transition-colors font-medium inline-flex items-center gap-2">{% trans "Voir toutes les études" %} <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>#}
+{#      </div>#}
+{#      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">#}
+{#        <!-- Card étude améliorée -->#}
+{#         {% load i18n %}#}
+{#{% for cas in case_studies %}#}
+{#  <article class="group border border-neutral-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300">#}
+{#    <div class="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden relative">#}
+{#      <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>#}
+{##}
+{#      {% if cas.cover %}#}
+{#        <img src="{{ cas.cover.url }}"#}
+{#             alt="{{ cas.cover_alt|default:cas.title }}"#}
+{#             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />#}
+{#      {% else %}#}
+{#        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"#}
+{#             alt="{{ cas.cover_alt|default:cas.title }}"#}
+{#             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />#}
+{#      {% endif %}#}
+{#    </div>#}
+{##}
+{#    <div class="p-6">#}
+{#      <h3 class="font-semibold text-primary-800 text-lg">{{ cas.title }}</h3>#}
+{#      {% if cas.excerpt %}#}
+{#        <p class="mt-2 text-neutral-600">{{ cas.excerpt }}</p>#}
+{#      {% endif %}#}
+{#      <a href="{{ cas.get_absolute_url }}"#}
+{#         class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">#}
+{#        {% trans "Lire l'étude" %}#}
+{#        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">#}
+{#          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>#}
+{#        </svg>#}
+{#      </a>#}
+{#    </div>#}
+{#  </article>#}
+{#{% empty %}#}
+{#  <p class="text-neutral-600">{% trans "Aucune étude de cas pour le moment." %}</p>#}
+{#{% endfor %}#}
+{##}
+{#{% if is_paginated %}#}
+{#  <div class="mt-10 flex items-center justify-center gap-2">#}
+{#    {% if page_obj.has_previous %}#}
+{#      <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-2 border rounded-lg hover:bg-neutral-50">← {% trans "Précédent" %}</a>#}
+{#    {% endif %}#}
+{#    <span class="px-3 py-2 text-neutral-600">{% blocktrans %}Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}{% endblocktrans %}</span>#}
+{#    {% if page_obj.has_next %}#}
+{#      <a href="?page={{ page_obj.next_page_number }}" class="px-3 py-2 border rounded-lg hover:bg-neutral-50">{% trans "Suivant" %} →</a>#}
+{#    {% endif %}#}
+{#  </div>#}
+{#{% endif %}#}
+{#        <article class="group border border-neutral-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300">#}
+{#          <div class="aspect-video bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden relative">#}
+{#            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>#}
+{#            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Projet transformation digitale" %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />#}
+{#          </div>#}
+{#          <div class="p-6">#}
+{#            <h3 class="font-semibold text-primary-800 text-lg">{% trans "Refonte UX pour une app grand public" %}</h3>#}
+{#            <p class="mt-2 text-neutral-600">{% trans "Amélioration de l'expérience utilisateur et augmentation du taux de conversion de 40%." %}</p>#}
+{#            <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "Lire l'étude" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#          </div>#}
+{#        </article>#}
+{##}
+{#        <article class="group border border-neutral-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300">#}
+{#          <div class="aspect-video bg-gradient-to-br from-green-100 to-green-200 overflow-hidden relative">#}
+{#            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>#}
+{#            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Projet développement agile" %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />#}
+{#          </div>#}
+{#          <div class="p-6">#}
+{#            <h3 class="font-semibold text-primary-800 text-lg">{% trans "Implémentation DevOps" %}</h3>#}
+{#            <p class="mt-2 text-neutral-600">{% trans "Mise en place d'une culture DevOps et automatisation des déploiements pour réduire le time-to-market." %}</p>#}
+{#            <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "Lire l'étude" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>#}
+{#          </div>#}
+{#        </article>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Carrières amélioré -->#}
+{#  <section class="py-20" id="careers">#}
+{#    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">#}
+{#      <div class="rounded-3xl border border-neutral-200 gradient-bg text-white p-12 grid lg:grid-cols-2 gap-10 items-center shadow-xl">#}
+{#        <div>#}
+{#          <h2 class="text-3xl font-bold tracking-tight">{% trans "Rejoignez l'aventure" %}</h2>#}
+{#          <p class="mt-4 text-neutral-100 text-lg">{% trans "Projets agiles, défis techniques, progression de carrière : découvrez nos offres et notre programme de stages." %}</p>#}
+{#          <div class="mt-8 flex items-center gap-4 flex-wrap">#}
+{#            <a class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg" href="#">{% trans "Voir les postes" %}</a>#}
+{#            <a class="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition-all" href="#">{% trans "Programme de stages" %}</a>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="aspect-video rounded-xl glass-effect border border-white/20 overflow-hidden">#}
+{#          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Équipe de l'SANABA" %}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Contact / CTA amélioré -->#}
+{#  <section class="py-20 bg-white border-y border-neutral-200" id="contact">#}
+{#    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">#}
+{#      <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Un projet en tête ?" %}</h2>#}
+{#      <p class="text-neutral-600 mt-4 text-lg">{% trans "Parlons de vos objectifs et de comment créer de la valeur mesurable rapidement." %}</p>#}
+{#      <a href="#" class="mt-8 inline-flex items-center px-8 py-4 rounded-xl gradient-bg text-white hover:opacity-90 transition-all shadow-md hover:shadow-lg text-lg font-medium">{% trans "Discuter de votre prochain projet" %}</a>#}
+{#    </div>#}
+{#  </section>#}
+{##}
+{#  <!-- Footer amélioré -->#}
+{#  <footer class="py-16 text-sm bg-neutral-100">#}
+{#    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-10">#}
+{#      <div>#}
+{#        <div class="flex items-center gap-3 mb-4">#}
+{#          <div class="h-8 w-8 rounded-lg gradient-bg"></div>#}
+{#          <span class="font-semibold text-primary-800 text-lg">SANABA</span>#}
+{#        </div>#}
+{#        <p class="text-neutral-600">{% trans "Votre partenaire pour la transformation digitale. Expertise, agilité et résultats mesurables." %}</p>#}
+{#        <div class="flex items-center gap-4 mt-5">#}
+{#          <a class="text-primary-600 hover:text-primary-800 transition-colors" href="#" aria-label="Facebook">#}
+{#            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>#}
+{#          </a>#}
+{#          <a class="text-primary-600 hover:text-primary-800 transition-colors" href="#" aria-label="Twitter">#}
+{#            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>#}
+{#          </a>#}
+{#          <a class="text-primary-600 hover:text-primary-800 transition-colors" href="#" aria-label="GitHub">#}
+{#            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>#}
+{#          </a>#}
+{#          <a class="text-primary-600 hover:text-primary-800 transition-colors" href="#" aria-label="LinkedIn">#}
+{#            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.040-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.33#}
+{##}
+{#-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path></svg>#}
+{#          </a>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div>#}
+{#        <div class="font-semibold text-primary-800 text-lg mb-4">{% trans "Liens" %}</div>#}
+{#        <ul class="space-y-3 text-neutral-600">#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Accueil" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#services">{% trans "Services" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#insights">{% trans "Études de cas" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#careers">{% trans "Carrières" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#contact">{% trans "Contact" %}</a></li>#}
+{#        </ul>#}
+{#      </div>#}
+{#      <div>#}
+{#        <div class="font-semibold text-primary-800 text-lg mb-4">{% trans "Informations" %}</div>#}
+{#        <ul class="space-y-3 text-neutral-600">#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Politique de confidentialité" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Cookies" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Accessibilité" %}</a></li>#}
+{#          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Plan de réduction carbone" %}</a></li>#}
+{#        </ul>#}
+{#      </div>#}
+{#      <div>#}
+{#        <div class="font-semibold text-primary-800 text-lg mb-4">{% trans "Bureau principal" %}</div>#}
+{#        <address class="not-italic text-neutral-600">#}
+{#          3e étage, 65‑68 Rue de la République<br/>75011 Paris, France#}
+{#        </address>#}
+{#        <a class="mt-4 inline-flex text-primary-600 hover:text-primary-800 transition-colors font-medium" href="mailto:contact@agencedigitale.fr">contact@agencedigitale.fr</a><br/>#}
+{#        <a class="mt-2 inline-flex text-primary-600 hover:text-primary-800 transition-colors font-medium" href="tel:+33123456789">+33 1 23 45 67 89</a>#}
+{#      </div>#}
+{#    </div>#}
+{#    <div class="mt-14 text-center text-neutral-500 pt-6 border-t border-neutral-200">© 2025 SANABA — {% trans "Tous droits réservés." %} SIRET: 123 456 789 00012</div>#}
+{#  </footer>#}
+{##}
+{#  <script>#}
+{#    // Mobile menu#}
+{#    document.getElementById('btnMobile').addEventListener('click', () => {#}
+{#      const m = document.getElementById('mobileMenu');#}
+{#      m.classList.toggle('hidden');#}
+{#    });#}
+{##}
+{#    // Play/Pause animation du hero#}
+{#    const hero = document.getElementById('heroAnim');#}
+{#    document.getElementById('btnPause').addEventListener('click', ()=> hero.classList.add('paused'));#}
+{#    document.getElementById('btnPlay').addEventListener('click', ()=> hero.classList.remove('paused'));#}
+{##}
+{#    // Générer une série de logos factices et dupliquer pour le ruban infini#}
+{#    const strip = document.getElementById('logosStrip');#}
+{#    const originalContent = strip.innerHTML;#}
+{#    strip.innerHTML = originalContent + originalContent;#}
+{##}
+{#    // Animation au défilement#}
+{#    const observerOptions = {#}
+{#      root: null,#}
+{#      rootMargin: '0px',#}
+{#      threshold: 0.1#}
+{#    };#}
+{##}
+{#    const observer = new IntersectionObserver((entries) => {#}
+{#      entries.forEach(entry => {#}
+{#        if (entry.isIntersecting) {#}
+{#          entry.target.classList.add('fade-in-up');#}
+{#        }#}
+{#      });#}
+{#    }, observerOptions);#}
+{##}
+{#    // Observer les éléments à animer#}
+{#    document.querySelectorAll('section').forEach(section => {#}
+{#      observer.observe(section);#}
+{#    });#}
+{#  </script>#}
+{#</body>#}
+{#</html>#}
+
+
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% trans "SANABA — Transformation Digitale" %}</title>
+  <meta name="description" content="{% trans "SANABA spécialisée en transformation digitale, data IA, cloud et expérience utilisateur." %}" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { sans: ['Inter', 'sans-serif'] },
+        extend: {
+          colors: {
+            primary: { 50:'#f0f9ff',100:'#e0f2fe',200:'#bae6fd',300:'#7dd3fc',400:'#38bdf8',500:'#0ea5e9',600:'#0284c7',700:'#0369a1',800:'#075985',900:'#0c4a6e' },
+            accent: { 50:'#fdf4ff',100:'#fae8ff',200:'#f5d0fe',300:'#f0abfc',400:'#e879f9',500:'#d946ef',600:'#c026d3',700:'#a21caf',800:'#86198f',900:'#701a75' },
+            dark:   { 50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a' }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-soft': 'pulse-soft 4s cubic-bezier(0.4,0,0.6,1) infinite',
+            'gradient-x': 'gradient-x 15s ease infinite',
+            'slide-up': 'slide-up 0.5s ease-out',
+            'marquee': 'marquee 25s linear infinite'
+          },
+          keyframes: {
+            float: { '0%,100%':{transform:'translateY(0px)'}, '50%':{transform:'translateY(-10px)'} },
+            'pulse-soft': { '0%,100%':{opacity:1}, '50%':{opacity:.8} },
+            'gradient-x': { '0%,100%':{'background-position':'0% 50%'}, '50%':{'background-position':'100% 50%'} },
+            'slide-up': { '0%':{opacity:0,transform:'translateY(10px)'}, '100%':{opacity:1,transform:'translateY(0)'} },
+            marquee: { '0%':{transform:'translateX(0)'}, '100%':{transform:'translateX(-50%)'} }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts & AOS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #0ea5e9 10%, #d946ef 100%);
+      background-size: 200% 200%;
+      animation: gradient-x 15s ease infinite;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .glass-effect {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .service-card { transition: all .3s cubic-bezier(.4,0,.2,1); transform-origin: center; }
+    .service-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(0,0,0,.15); }
+    .text-shadow-dark { text-shadow: 0 2px 4px rgba(0,0,0,.3); }
+
+    /* Nav underline */
+    .nav-item { position: relative; padding: .5rem 0; }
+    .nav-item::after {
+      content:''; position:absolute; bottom:0; left:0; width:0; height:2px;
+      background: linear-gradient(135deg,#0ea5e9 0%,#d946ef 100%);
+      transition: width .3s ease;
+    }
+    .nav-item:hover::after, .nav-item.active::after { width:100%; }
+
+    /* Mobile menu slide */
+    .mobile-menu { transform: translateY(-100%); transition: transform .3s ease-out; }
+    .mobile-menu.open { transform: translateY(0); }
+
+    /* Carousel essentials */
+    .carousel-container { position: relative; height: 650px; overflow: hidden; }
+    .slide {
+      opacity: 0; transition: opacity .8s ease; position:absolute; inset:0;
+      display:flex; align-items:center;
+    }
+    .slide.active { opacity: 1; z-index: 10; }
+    .carousel-dots {
+      display:flex; justify-content:center; position:absolute; bottom:20px; left:0; right:0; z-index:20;
+      gap:10px;
+    }
+    .carousel-dot { width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,.5); cursor:pointer; transition:all .3s ease; }
+    .carousel-dot.active { background:#fff; transform: scale(1.2); }
+    .carousel-nav {
+      position:absolute; top:50%; transform: translateY(-50%); z-index:20;
+      background: rgba(255,255,255,.2); width:40px; height:40px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; cursor:pointer; transition: all .3s ease;
+    }
+    .carousel-nav:hover { background: rgba(255,255,255,.3); }
+    .carousel-nav.prev { left:20px; } .carousel-nav.next { right:20px; }
+    @media (max-width:768px){ .carousel-nav{ display:none; } }
+
+    /* Hero marquee pause */
+    .paused { animation-play-state: paused !important; }
+  </style>
 </head>
-<body>
+<body class="min-h-screen bg-white text-dark-900 font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-dark-200/80 transition-all duration-300" id="main-header">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="flex items-center gap-3 group" href="#hero">
+          <div class="h-8 w-8 rounded-lg gradient-bg group-hover:animate-pulse-soft transition-all"></div>
+          <span class="font-semibold tracking-tight text-primary-800 group-hover:gradient-text transition-all">SANABA</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#hero" class="nav-item text-dark-600 hover:text-primary-600 transition-colors font-medium active">{% trans "Accueil" %}</a>
+
+          <!-- Dropdown Services -->
+          <div class="relative group">
+            <button id="servicesToggle"
+              class="inline-flex items-center gap-2 hover:text-primary-600 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-md"
+              type="button"
+              aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
+              {% trans "Nos services" %}
+              <svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.354a.75.75 0 111.02 1.1l-4.2 3.8a.75.75 0 01-1.02 0l-4.2-3.8a.75.75 0 01-.02-1.06z"/>
+              </svg>
+            </button>
+
+            <div id="servicesPanel"
+                 class="absolute left-0 mt-2 w-[720px] rounded-2xl border border-neutral-200 bg-white shadow-xl p-6 grid grid-cols-2 gap-4
+                        opacity-0 pointer-events-none scale-95
+                        group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100
+                        group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:scale-100
+                        transition-all duration-300 origin-top-left z-50">
+
+              <!-- Données réelles : liens vers les pages service_detail par slug -->
+              <a class="p-4 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'service_detail' 'data-ai' %}">
+                <div class="font-medium text-primary-800 flex items-center gap-2">
+                  📊 {% trans "Data & IA" %}
+                </div>
+                <p class="text-xs text-dark-500 mt-1">
+                  {% trans "Data strategy, data warehousing, BI, MLOps, LLM & RAG, prédiction." %}
+                </p>
+              </a>
+
+              <a class="p-4 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'service_detail' 'cloud-security' %}">
+                <div class="font-medium text-primary-800 flex items-center gap-2">
+                  ☁️ {% trans "Cloud & Sécurité" %}
+                </div>
+                <p class="text-xs text-dark-500 mt-1">
+                  {% trans "Migration cloud, FinOps, SecOps (Zero-Trust), conformité & résilience." %}
+                </p>
+              </a>
+
+              <a class="p-4 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'service_detail' 'engineering' %}">
+                <div class="font-medium text-primary-800 flex items-center gap-2">
+                  🛠️ {% trans "Ingénierie Logicielle" %}
+                </div>
+                <p class="text-xs text-dark-500 mt-1">
+                  {% trans "Back-end, front-end, mobile, APIs, QA, CI/CD, microservices." %}
+                </p>
+              </a>
+
+              <a class="p-4 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'service_detail' 'ux-research' %}">
+                <div class="font-medium text-primary-800 flex items-center gap-2">
+                  🎯 {% trans "UX & Recherche" %}
+                </div>
+                <p class="text-xs text-dark-500 mt-1">
+                  {% trans "Discovery, tests utilisateurs, accessibilité, design systems." %}
+                </p>
+              </a>
+
+              <a class="p-4 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'service_detail' 'delivery-management' %}">
+                <div class="font-medium text-primary-800 flex items-center gap-2">
+                  🚀 {% trans "Delivery Management" %}
+                </div>
+                <p class="text-xs text-dark-500 mt-1">
+                  {% trans "Pilotage agile/PMO, qualité, time-to-value, change management." %}
+                </p>
+              </a>
+
+              <a class="p-4 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'service_detail' 'business-consulting' %}">
+                <div class="font-medium text-primary-800 flex items-center gap-2">
+                  🧭 {% trans "Conseil Métier" %}
+                </div>
+                <p class="text-xs text-dark-500 mt-1">
+                  {% trans "Cadrage stratégique, trajectoire digitale, ROI & gouvernance." %}
+                </p>
+              </a>
+            </div>
+          </div>
+
+          <a href="#insights" class="nav-item text-dark-600 hover:text-primary-600 transition-colors font-medium">{% trans "Insights" %}</a>
+          <a href="#careers" class="nav-item text-dark-600 hover:text-primary-600 transition-colors font-medium">{% trans "Carrières" %}</a>
+          <a href="#contact" class="inline-flex items-center px-4 py-2 rounded-xl gradient-bg text-white hover:opacity-90 transition-all shadow-md hover:shadow-lg">{% trans "Nous contacter" %}</a>
+
+          <!-- Lang switcher -->
+          <form action="{% url 'set_language' %}" method="post" class="ml-2">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+            {% get_current_language as CURRENT %}
+            {% get_available_languages as LANGS %}
+            <select name="language" class="border border-dark-300 rounded-lg px-2 py-1 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent" onchange="this.form.submit()">
+              {% for code, name in LANGS %}
+                <option value="{{ code }}" {% if code == CURRENT %}selected{% endif %}>{{ name }}</option>
+              {% endfor %}
+            </select>
+          </form>
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button id="btnMobile" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-dark-300 hover:border-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500" aria-controls="mobileMenu" aria-expanded="false">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="mobile-menu absolute top-16 left-0 w-full border-t border-dark-200 bg-white/95 backdrop-blur-sm md:hidden">
+      <div class="px-4 py-4 flex flex-col gap-3 text-sm">
+        <a href="#hero" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-dark-100 nav-item">{% trans "Accueil" %}</a>
+        <a href="{% url 'services' %}" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-dark-100 nav-item">{% trans "Nos services" %}</a>
+        <a href="#insights" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-dark-100 nav-item">{% trans "Insights" %}</a>
+        <a href="#careers" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-dark-100 nav-item">{% trans "Carrières" %}</a>
+        <a href="#contact" class="mt-2 inline-flex items-center px-4 py-2 rounded-xl gradient-bg text-white w-max shadow-md">{% trans "Nous contacter" %}</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-16" id="hero">
+    <div class="absolute inset-0 z-0">
+      <div id="heroAnim" class="h-full w-[200%] gradient-bg animate-marquee"></div>
+    </div>
+
+    <div class="carousel-container relative z-10">
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center h-full">
+          <div class="text-white" data-aos="fade-right" data-aos-delay="200">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-shadow-dark">{% trans "Transformation digitale centrée sur l'humain" %}</h1>
+            <p class="mt-6 text-white/90 max-w-xl text-lg">{% trans "Nous aidons les organisations à simplifier la technologie et à créer des services utiles, accessibles et dignes de confiance." %}</p>
+            <div class="mt-8 flex items-center gap-3 flex-wrap">
+              <a href="#services" class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg animate-pulse-soft">{% trans "Découvrir nos services" %}</a>
+              <button id="btnPause" aria-label="{% trans 'Mettre en pause l’animation' %}" class="px-4 py-2 rounded-xl glass-effect text-white hover:bg-white/20 transition-all">{% trans "Pause" %}</button>
+              <button id="btnPlay" aria-label="{% trans 'Lire l’animation' %}" class="px-4 py-2 rounded-xl glass-effect text-white hover:bg-white/20 transition-all hidden">{% trans "Lecture" %}</button>
+            </div>
+          </div>
+          <div class="glass-effect rounded-2xl p-6 shadow-xl backdrop-blur-sm" data-aos="fade-left" data-aos-delay="400">
+            <div class="aspect-video rounded-xl bg-gradient-to-br from-primary-100 to-accent-100 grid place-items-center border border-primary-200/50 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="{% trans 'Équipe travaillant sur un projet digital' %}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <ul class="mt-6 space-y-3 text-sm text-dark-100/90">
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Méthodes agiles et collaboration forte" %}</li>
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Excellence d'exécution et qualité logicielle" %}</li>
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Mesure d'impact et amélioration continue" %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center h-full">
+          <div class="text-white">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-shadow-dark">{% trans "Solutions innovantes pour votre entreprise" %}</h1>
+            <p class="mt-6 text-white/90 max-w-xl text-lg">{% trans "Nous développons des applications sur mesure qui transforment vos processus métier et améliorent votre productivité." %}</p>
+            <div class="mt-8 flex items-center gap-3 flex-wrap">
+              <a href="#portfolio" class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg">{% trans "Voir nos réalisations" %}</a>
+              <a href="#contact" class="px-6 py-3 rounded-xl glass-effect text-white font-medium hover:bg-white/20 transition-all shadow-md hover:shadow-lg">{% trans "Nous contacter" %}</a>
+            </div>
+          </div>
+          <div class="glass-effect rounded-2xl p-6 shadow-xl backdrop-blur-sm">
+            <div class="aspect-video rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 grid place-items-center border border-purple-200/50 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=1200&q=80" alt="{% trans 'Tableau de bord analytique' %}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <ul class="mt-6 space-y-3 text-sm text-dark-100/90">
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Développement d'applications sur mesure" %}</li>
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Interfaces intuitives et expérience utilisateur optimale" %}</li>
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Solutions évolutives et maintenables" %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center h-full">
+          <div class="text-white">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-shadow-dark">Data Intelligence & Analytics</h1>
+            <p class="mt-6 text-white/90 max-w-xl text-lg">{% trans "Transformez vos données en insights actionnables grâce à nos solutions d'analyse et de visualisation." %}</p>
+            <div class="mt-8 flex items-center gap-3 flex-wrap">
+              <a href="{% url 'service_detail' 'data-ai' %}" class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg">{% trans "Explorer nos solutions data" %}</a>
+              <a href="#insights" class="px-6 py-3 rounded-xl glass-effect text-white font-medium hover:bg-white/20 transition-all shadow-md hover:shadow-lg">{% trans "Études de cas" %}</a>
+            </div>
+          </div>
+          <div class="glass-effect rounded-2xl p-6 shadow-xl backdrop-blur-sm">
+            <div class="aspect-video rounded-xl bg-gradient-to-br from-green-100 to-blue-100 grid place-items-center border border-green-200/50 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="{% trans 'Visualisation de données' %}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <ul class="mt-6 space-y-3 text-sm text-dark-100/90">
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Analyse avancée & gouvernance" %}</li>
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "Tableaux de bord interactifs" %}</li>
+              <li class="flex items-center gap-3"><span class="text-white">✔️</span> {% trans "MLOps, LLM, RAG" %}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <div class="carousel-nav prev" aria-label="Slide précédente">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </div>
+      <div class="carousel-nav next" aria-label="Slide suivante">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </div>
+
+      <!-- Dots -->
+      <div class="carousel-dots" aria-label="Navigation slides">
+        <div class="carousel-dot active" data-slide="0"></div>
+        <div class="carousel-dot" data-slide="1"></div>
+        <div class="carousel-dot" data-slide="2"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Intro -->
+  <section class="py-20" id="intro" data-aos="fade-up">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Ce que nous faisons" %}</h2>
+      <p class="mt-6 text-dark-600 text-lg">
+        {% trans "Depuis 2007, nous accompagnons secteurs public et privé avec des solutions pragmatiques et centrées utilisateurs. Notre approche combine expertise technique et compréhension métier pour créer des solutions digitales qui ont un impact réel." %}
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+        <span class="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium shadow-sm">{% trans "+150 projets livrés" %}</span>
+        <span class="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium shadow-sm">{% trans "Certifié AWS Partner" %}</span>
+        <span class="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium shadow-sm">{% trans "Équipe de 45 experts" %}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services amélioré -->
+  <section id="services" class="py-16 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Nos services" %}</h2>
+        <p class="text-neutral-600 mt-4 max-w-2xl mx-auto text-lg">{% trans "De la stratégie à la livraison, une couverture bout‑en‑bout de votre transformation digitale." %}</p>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card service améliorée -->
+        {% for service in services %}
+{% with service_index=forloop.counter0|stringformat:"s" %}
+{% with color_class=service.slug|default:service_index %}
+<a id="services-{{ service.slug }}" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="{% url 'service_detail' service.slug %}">
+  <div class="aspect-[3/2] rounded-xl bg-gradient-to-br
+    {% if color_class == 'data-ai' or forloop.counter0 == 0 %}from-blue-50 to-blue-100 border-blue-200
+    {% elif color_class == 'cloud-security' or forloop.counter0 == 1 %}from-cyan-50 to-cyan-100 border-cyan-200
+    {% elif color_class == 'engineering' or forloop.counter0 == 2 %}from-violet-50 to-violet-100 border-violet-200
+    {% elif color_class == 'ux-research' or forloop.counter0 == 3 %}from-pink-50 to-pink-100 border-pink-200
+    {% elif color_class == 'delivery-management' or forloop.counter0 == 4 %}from-amber-50 to-amber-100 border-amber-200
+    {% elif color_class == 'business-consulting' or forloop.counter0 == 5 %}from-emerald-50 to-emerald-100 border-emerald-200
+    {% else %}from-blue-50 to-blue-100 border-blue-200{% endif %}
+    grid place-items-center border overflow-hidden">
+
+    {% if service.image %}
+      <img src="{{ service.image.url }}" alt="{{ service.name }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+    {% else %}
+      <!-- Icône par défaut si aucune image n'est définie -->
+      <div class="w-full h-full flex items-center justify-center
+        {% if color_class == 'data-ai' or forloop.counter0 == 0 %}bg-blue-100
+        {% elif color_class == 'cloud-security' or forloop.counter0 == 1 %}bg-cyan-100
+        {% elif color_class == 'engineering' or forloop.counter0 == 2 %}bg-violet-100
+        {% elif color_class == 'ux-research' or forloop.counter0 == 3 %}bg-pink-100
+        {% elif color_class == 'delivery-management' or forloop.counter0 == 4 %}bg-amber-100
+        {% elif color_class == 'business-consulting' or forloop.counter0 == 5 %}bg-emerald-100
+        {% else %}bg-blue-100{% endif %}">
+
+        {% if service.icon %}
+          <span class="text-4xl">{{ service.icon }}</span>
+        {% else %}
+          <svg class="w-12 h-12
+            {% if color_class == 'data-ai' or forloop.counter0 == 0 %}text-blue-600
+            {% elif color_class == 'cloud-security' or forloop.counter0 == 1 %}text-cyan-600
+            {% elif color_class == 'engineering' or forloop.counter0 == 2 %}text-violet-600
+            {% elif color_class == 'ux-research' or forloop.counter0 == 3 %}text-pink-600
+            {% elif color_class == 'delivery-management' or forloop.counter0 == 4 %}text-amber-600
+            {% elif color_class == 'business-consulting' or forloop.counter0 == 5 %}text-emerald-600
+            {% else %}text-blue-600{% endif %}"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  <h3 class="mt-5 font-semibold text-primary-800 text-lg">{{ service.name }}</h3>
+  <p class="text-neutral-600 mt-2">{{ service.short_description }}</p>
+  <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">
+    {% trans "En savoir plus" %}
+    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+    </svg>
+  </span>
+</a>
+{% endwith %}
+{% endwith %}
+{% endfor %}
+
+        <a id="services-cloud-security" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">
+          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-cyan-50 to-cyan-100 grid place-items-center border border-cyan-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Cloud et Sécurité" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Cloud & Sécurité" %}</h3>
+          <p class="text-neutral-600 mt-2">{% trans "Stratégie cloud, migration, FinOps, SecOps, conformité." %}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+        </a>
+
+        <a id="services-engineering" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">
+          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-violet-50 to-violet-100 grid place-items-center border border-violet-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Ingénierie Logicielle" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Ingénierie Logicielle" %}</h3>
+          <p class="text-neutral-600 mt-2">{% trans "Back‑end, front‑end, mobile, APIs, tests, CI/CD." %}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+        </a>
+
+        <a id="services-ux" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">
+          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 grid place-items-center border border-pink-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "UX et Recherche" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "UX & Recherche" %}</h3>
+          <p class="text-neutral-600 mt-2">{% trans "Découverte, tests utilisateurs, accessibilité, design systems." %}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+        </a>
+
+        <a id="services-delivery" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">
+          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 grid place-items-center border border-amber-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Delivery Management" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Delivery Management" %}</h3>
+          <p class="text-neutral-600 mt-2">{% trans "Gestion de programmes/projets, QA, excellence opérationnelle." %}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+        </a>
+
+        <a id="services-conseil" class="group service-card border border-neutral-200 rounded-2xl p-6 bg-white hover:border-primary-300" href="#">
+          <div class="aspect-[3/2] rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 grid place-items-center border border-emerald-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Conseil Métier" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <h3 class="mt-5 font-semibold text-primary-800 text-lg">{% trans "Conseil Métier" %}</h3>
+          <p class="text-neutral-600 mt-2">{% trans "Cadrage, transformation, change, formation." %}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "En savoir plus" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Logos clients (marquee) amélioré -->
+  <section class="py-16 bg-white border-y border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold tracking-tight text-primary-800 text-center mb-2">{% trans "Ils nous font confiance" %}</h2>
+      <p class="text-neutral-600 text-center mb-10">{% trans "Découvrez quelques-uns de nos partenaires et clients" %}</p>
+      <div class="relative overflow-hidden mt-6">
+        <div class="flex gap-16 whitespace-nowrap marquee" id="logosStrip">
+          <!-- Dupliquez la série pour l'effet infini -->
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-primary-600 rounded-sm opacity-70">TRATRA</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-secondary-600 rounded-sm opacity-70">IPCI</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-primary-700 rounded-sm opacity-70">
+                <img src="{% static 'img/lo' %}" alt="{% trans "Conseil Métier" %}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-secondary-700 rounded-sm opacity-70">SMIT</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-primary-800 rounded-sm opacity-70">GOUV.CI</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-secondary-800 rounded-sm opacity-70">TRACEAGRI</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-primary-600 rounded-sm opacity-70">SANTE CI</div>
+          </div>
+          <div class="h-16 w-40 rounded-lg bg-white border border-neutral-200 grid place-items-center p-2 shadow-sm">
+            <div class="h-10 w-full bg-secondary-600 rounded-sm opacity-70">AFRIQCONSULTING</div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Témoignages amélioré -->
+  <section class="py-20 bg-neutral-50" id="temoignages">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-primary-800 text-center mb-12">{% trans "Témoignages" %}</h2>
+      <div class="mt-6 grid lg:grid-cols-2 gap-8">
+        <article class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow group">
+          <div class="text-primary-600 text-5xl mb-4">"</div>
+          <p class="text-neutral-700 text-lg italic">{% trans "« Equipe très professionnelle, autonome et proactive. Intégration fluide et forte culture de collaboration. »" %}</p>
+          <div class="mt-6 flex items-center gap-4">
+            <div class="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 font-medium text-lg group-hover:float">CT</div>
+            <div>
+              <div class="text-md font-semibold">{% trans "Pierre Martin, CTO" %}</div>
+              <div class="text-sm text-neutral-500">{% trans "Startup FinTech" %}</div>
+            </div>
+          </div>
+        </article>
+        <article class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow group">
+          <div class="text-primary-600 text-5xl mb-4">"</div>
+          <p class="text-neutral-700 text-lg italic">{% trans "« Approche flexible, pragmatique et collégiale. Un partenaire de confiance, orienté résultats. »" %}</p>
+          <div class="mt-6 flex items-center gap-4">
+            <div class="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 font-medium text-lg group-hover:float">DA</div>
+            <div>
+              <div class="text-md font-semibold">{% trans "Sophie Dubois" %}</div>
+              <div class="text-sm text-neutral-500">{% trans "Directrice Architecture Digitale — Secteur public" %}</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+    <!-- Études de cas amélioré -->
+  <section class="py-20 bg-white border-y border-neutral-200" id="insights">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4 mb-12">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-primary-800">{% trans "Études de cas à la une" %}</h2>
+          <p class="text-neutral-600 mt-2">{% trans "Découvrez comment nous avons aidé nos clients à réussir leur transformation digitale." %}</p>
+        </div>
+        <a href="#" class="text-primary-600 hover:text-primary-800 transition-colors font-medium inline-flex items-center gap-2">{% trans "Voir toutes les études" %} <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card étude améliorée -->
+         {% load i18n %}
+{% for cas in case_studies %}
+  <article class="group border border-neutral-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300">
+    <div class="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden relative">
+      <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+
+      {% if cas.cover %}
+        <img src="{{ cas.cover.url }}"
+             alt="{{ cas.cover_alt|default:cas.title }}"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+             alt="{{ cas.cover_alt|default:cas.title }}"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+      {% endif %}
+    </div>
+
+    <div class="p-6">
+      <h3 class="font-semibold text-primary-800 text-lg">{{ cas.title }}</h3>
+      {% if cas.excerpt %}
+        <p class="mt-2 text-neutral-600">{{ cas.excerpt }}</p>
+      {% endif %}
+      <a href="{{ cas.get_absolute_url }}"
+         class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">
+        {% trans "Lire l'étude" %}
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% empty %}
+  <p class="text-neutral-600">{% trans "Aucune étude de cas pour le moment." %}</p>
+{% endfor %}
+
+{% if is_paginated %}
+  <div class="mt-10 flex items-center justify-center gap-2">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-2 border rounded-lg hover:bg-neutral-50">← {% trans "Précédent" %}</a>
+    {% endif %}
+    <span class="px-3 py-2 text-neutral-600">{% blocktrans %}Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}{% endblocktrans %}</span>
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="px-3 py-2 border rounded-lg hover:bg-neutral-50">{% trans "Suivant" %} →</a>
+    {% endif %}
+  </div>
+{% endif %}
+        <article class="group border border-neutral-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300">
+          <div class="aspect-video bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Projet transformation digitale" %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-primary-800 text-lg">{% trans "Refonte UX pour une app grand public" %}</h3>
+            <p class="mt-2 text-neutral-600">{% trans "Amélioration de l'expérience utilisateur et augmentation du taux de conversion de 40%." %}</p>
+            <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "Lire l'étude" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+          </div>
+        </article>
+
+        <article class="group border border-neutral-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300">
+          <div class="aspect-video bg-gradient-to-br from-green-100 to-green-200 overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Projet développement agile" %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-primary-800 text-lg">{% trans "Implémentation DevOps" %}</h3>
+            <p class="mt-2 text-neutral-600">{% trans "Mise en place d'une culture DevOps et automatisation des déploiements pour réduire le time-to-market." %}</p>
+            <span class="mt-4 inline-flex items-center gap-2 text-primary-600 group-hover:gap-3 transition-all font-medium">{% trans "Lire l'étude" %} <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+<!-- Carrières amélioré -->
+  <section class="py-20" id="careers">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl border border-neutral-200 gradient-bg text-white p-12 grid lg:grid-cols-2 gap-10 items-center shadow-xl">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">{% trans "Rejoignez l'aventure" %}</h2>
+          <p class="mt-4 text-neutral-100 text-lg">{% trans "Projets agiles, défis techniques, progression de carrière : découvrez nos offres et notre programme de stages." %}</p>
+          <div class="mt-8 flex items-center gap-4 flex-wrap">
+            <a class="px-6 py-3 rounded-xl bg-white text-primary-700 font-medium hover:bg-primary-50 transition-all shadow-md hover:shadow-lg" href="#">{% trans "Voir les postes" %}</a>
+            <a class="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition-all" href="#">{% trans "Programme de stages" %}</a>
+          </div>
+        </div>
+        <div class="aspect-video rounded-xl glass-effect border border-white/20 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="{% trans "Équipe de l'SANABA" %}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer simple -->
+  <footer class="py-16 text-sm bg-dark-50" id="contact">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-8 w-8 rounded-lg gradient-bg"></div>
+          <span class="font-semibold text-primary-800 text-lg">SANABA</span>
+        </div>
+        <p class="text-dark-600">{% trans "Votre partenaire pour la transformation digitale. Expertise, agilité et résultats mesurables." %}</p>
+      </div>
+      <div>
+        <div class="font-semibold text-primary-800 text-lg mb-4">{% trans "Liens" %}</div>
+        <ul class="space-y-3 text-dark-600">
+          <li><a class="hover:text-primary-600 transition-colors" href="#hero">{% trans "Accueil" %}</a></li>
+          <li><a class="hover:text-primary-600 transition-colors" href="#services">{% trans "Services" %}</a></li>
+          <li><a class="hover:text-primary-600 transition-colors" href="#insights">{% trans "Études de cas" %}</a></li>
+          <li><a class="hover:text-primary-600 transition-colors" href="#careers">{% trans "Carrières" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold text-primary-800 text-lg mb-4">{% trans "Informations" %}</div>
+        <ul class="space-y-3 text-dark-600">
+          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Politique de confidentialité" %}</a></li>
+          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Cookies" %}</a></li>
+          <li><a class="hover:text-primary-600 transition-colors" href="#">{% trans "Accessibilité" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold text-primary-800 text-lg mb-4">{% trans "Bureau principal" %}</div>
+        <address class="not-italic text-dark-600">
+          3e étage, 65-68 Rue de la République<br/>75011 Paris, France
+        </address>
+        <a class="mt-4 inline-flex text-primary-600 hover:text-primary-800 transition-colors font-medium" href="mailto:contact@agencedigitale.fr">contact@agencedigitale.fr</a><br/>
+        <a class="mt-2 inline-flex text-primary-600 hover:text-primary-800 transition-colors font-medium" href="tel:+33123456789">+33 1 23 45 67 89</a>
+      </div>
+    </div>
+    <div class="mt-14 text-center text-dark-500 pt-6 border-t border-dark-200">© 2025 SANABA — {% trans "Tous droits réservés." %} SIRET: 123 456 789 00012</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // AOS
+    AOS.init({ duration: 800, once: true, offset: 100 });
+
+    // Mobile menu
+    const btnMobile = document.getElementById('btnMobile');
+    const mobileMenu = document.getElementById('mobileMenu');
+    btnMobile.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const open = mobileMenu.classList.contains('open');
+      btnMobile.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btnMobile.innerHTML = open
+        ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+        : '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+    });
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        btnMobile.setAttribute('aria-expanded', 'false');
+        btnMobile.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+      });
+    });
+
+    // Header shadow on scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) header.classList.add('shadow-md');
+      else header.classList.remove('shadow-md');
+    });
+
+    // Hero play/pause marquee
+    const hero = document.getElementById('heroAnim');
+    const btnPause = document.getElementById('btnPause');
+    const btnPlay  = document.getElementById('btnPlay');
+    btnPause.addEventListener('click', () => { hero.classList.add('paused'); btnPause.classList.add('hidden'); btnPlay.classList.remove('hidden'); });
+    btnPlay .addEventListener('click', () => { hero.classList.remove('paused'); btnPlay .classList.add('hidden'); btnPause.classList.remove('hidden'); });
+
+    // Active nav state
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-item');
+    function highlightMenu() {
+      const scrollPos = window.scrollY;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${sectionId}`) item.classList.add('active');
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', highlightMenu);
+
+    // Carousel
+    (function initCarousel(){
+      const slides = document.querySelectorAll('.slide');
+      const dots   = document.querySelectorAll('.carousel-dot');
+      const prevBtn= document.querySelector('.carousel-nav.prev');
+      const nextBtn= document.querySelector('.carousel-nav.next');
+
+      let current = 0;
+      let autoplay = true;
+      let timer;
+
+      function go(n){
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        current = n;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+      function next(){ go((current + 1) % slides.length); }
+      function prev(){ go((current - 1 + slides.length) % slides.length); }
+
+      function start(){ if (autoplay) return; autoplay = true; timer = setInterval(next, 5000); }
+      function pause(){ if (!autoplay) return; autoplay = false; clearInterval(timer); }
+
+      prevBtn.addEventListener('click', () => { pause(); prev(); });
+      nextBtn.addEventListener('click', () => { pause(); next(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { pause(); go(i); }));
+
+      // Démarrer l'autoplay
+      start();
+    })();
+
+    // Dropdown Services (click + outside + Esc)
+    (function () {
+      const btn = document.getElementById('servicesToggle');
+      const panel = document.getElementById('servicesPanel');
+
+      function open() {
+        panel.classList.add('opacity-100','pointer-events-auto','scale-100');
+        panel.classList.remove('opacity-0','pointer-events-none','scale-95');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      function close() {
+        panel.classList.add('opacity-0','pointer-events-none','scale-95');
+        panel.classList.remove('opacity-100','pointer-events-auto','scale-100');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      function isOpen() { return btn.getAttribute('aria-expanded') === 'true'; }
+
+      btn.addEventListener('click', (e) => { e.stopPropagation(); isOpen() ? close() : open(); });
+      document.addEventListener('click', (e) => { if (!panel.contains(e.target) && !btn.contains(e.target)) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+  </script>
 
 </body>
 </html>

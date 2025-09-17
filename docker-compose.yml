@@ -1,23 +1,25 @@
+version: "3.9"
+
 services:
-  epidemieweb:
+  sanabaweb:
     build:
       context: .
       dockerfile: Dockerfile
-    # ⛔️ Plus besoin d'exposer de port vers l'hôte, Traefik s'en charge
-    # ports:
-    #   - 5191:8000
+    # Pas de ports exposés : Traefik route depuis le réseau "proxy"
     volumes:
-      - .:/epidemietrackr-app/
-      - static_volume:/app/static
-      - media_volume:/app/media
+      - .:/sanaba-app/
+      # On garde les dossiers statiques/médias dans le même préfixe pour la cohérence
+      - static_volume:/sanaba-app/static
+      - media_volume:/sanaba-app/media
     env_file:
       - ./.env
     restart: always
     depends_on:
-      epidemieDB:
+      sanabaDB:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health || exit 1"]
+      # Assure-toi que l'image contient curl (sinon remplace par wget --spider ou python -c)
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8000/health || exit 1"]
       interval: 30s
       timeout: 5s
       retries: 5
@@ -27,19 +29,31 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=proxy
-#      - traefik.http.routers.epidemieweb.service=epidemieweb-svc
-      # Couvre veillesanitaire.com ET www.veillesanitaire.com
-      - traefik.http.routers.epidemieweb.rule=Host(`veillesanitaire.com`)
-      - traefik.http.routers.epidemieweb.entrypoints=websecure
-      - traefik.http.routers.epidemieweb.tls=true
-      - traefik.http.routers.epidemieweb.tls.certresolver=lets
-      - traefik.http.routers.epidemieweb.middlewares=sec-headers@docker,compress@docker,ratelimit@docker
 
-      # Service: port interne Gunicorn
-      - traefik.http.services.epidemieweb.loadbalancer.server.port=8000
+      # Routers (HTTP -> redir HTTPS)
+      - traefik.http.routers.sanabaweb-http.rule=Host(`sanaba.co.uk`,`www.sanaba.co.uk`)
+      - traefik.http.routers.sanabaweb-http.entrypoints=web
+      - traefik.http.routers.sanabaweb-http.middlewares=redirect-to-https@docker
 
-  epidemieDB:
+      # Router HTTPS
+      - traefik.http.routers.sanabaweb.rule=Host(`sanaba.co.uk`,`www.sanaba.co.uk`)
+      - traefik.http.routers.sanabaweb.entrypoints=websecure
+      - traefik.http.routers.sanabaweb.tls=true
+      - traefik.http.routers.sanabaweb.tls.certresolver=lets
+
+      # Middlewares (chaînez les vôtres si définis côté Traefik)
+      - traefik.http.routers.sanabaweb.middlewares=sec-headers@docker,compress@docker,ratelimit@docker
+
+      # Service: port interne Gunicorn/Uvicorn
+      - traefik.http.services.sanabaweb.loadbalancer.server.port=8000
+
+      # Middleware de redirection HTTP -> HTTPS (défini ici côté Docker)
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true
+
+  sanabaDB:
     image: postgis/postgis:16-3.4
+    # ⚠️ Si ton hôte est ARM64 (ex: Graviton), retire cette ligne
     platform: linux/amd64
     restart: always
     environment:
@@ -49,36 +63,19 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ogah -d epidemie"]
+      # Utilise les mêmes variables que ta config réelle
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME} -h 127.0.0.1"]
       interval: 10s
       timeout: 5s
       retries: 10
     networks:
       - default
 
-  adminer:
-    image: adminer
-    restart: always
-    # ⛔️ Pas de port mappé; exposé via Traefik
-    # ports:
-    #   - 6080:8080
-    networks:
-      - default
-      - proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.adminer.rule=Host(`${ADMINER_HOST}`)"
-      - "traefik.http.routers.adminer.entrypoints=websecure"
-      - "traefik.http.routers.adminer.tls=true"
-      - "traefik.http.routers.adminer.tls.certresolver=lets"
-      - "traefik.http.routers.adminer.middlewares=compress@docker,sec-headers@docker"
-      - "traefik.http.services.adminer.loadbalancer.server.port=8080"
-
 networks:
   # Réseau interne app <-> DB
   default:
-    name: epidemietrackr_default
-  # Réseau Traefik (déjà créé par ton stack Traefik)
+    name: sanaba_default
+  # Réseau Traefik (déjà créé par le stack Traefik)
   proxy:
     external: true
 
@@ -87,48 +84,3 @@ volumes:
     driver: local
   static_volume:
   media_volume:
-
-#services:
-#
-#  epidemieweb:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    ports:
-#      - 5191:8000  # port du server : port de l'application
-#    volumes:
-#      - .:/epidemie-app/
-#    env_file:
-#      - ./.env
-#    restart: always
-#    depends_on:
-#      - epidemieDB
-#
-#  epidemieDB:
-#    image: postgis/postgis:16-3.4
-#    platform: linux/amd64
-#    restart: always
-#    environment:
-#      POSTGRES_DB: ${DB_NAME}
-#      POSTGRES_USER: ${DB_USER}
-#      POSTGRES_PASSWORD: ${DB_PASSWORD}
-#    volumes:
-#      - pgdata:/var/lib/postgresql/data
-#
-#  adminer:
-#    image: adminer
-#    restart: always
-#    ports:
-#      - 6080:8080
-#    networks:
-#      - epidemietracker_default
-#
-#networks:
-#  epidemietracker_default:
-#    external: true
-#
-#volumes:
-#  pgdata:
-#    driver: local
-#  static_volume:
-#  media_volume:

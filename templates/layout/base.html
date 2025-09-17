@@ -1,10 +1,168 @@
+{% load i18n static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}{% trans "SANABA — Transformation Digitale" %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% trans "SANABA spécialisée en transformation digitale, data IA, cloud et expérience utilisateur." %}{% endblock %}" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            secondary: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              200: '#f5d0fe',
+              300: '#f0abfc',
+              400: '#e879f9',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf',
+              800: '#86198f',
+              900: '#701a75',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Votre CSS existant */
+  </style>
 </head>
-<body>
+<body class="min-h-screen bg-neutral-50 text-neutral-900 selection:bg-primary-500 selection:text-white font-sans">
+  <!-- Header avec navigation mise à jour -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/80">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="flex items-center gap-3 group" href="{% url 'home' %}">
+          <div class="h-8 w-8 rounded-lg gradient-bg group-hover:pulse transition-all"></div>
+          <span class="font-semibold tracking-tight text-primary-800 group-hover:gradient-text transition-all">SANABA</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="{% url 'home' %}" class="hover:text-primary-600 transition-colors font-medium {% if request.resolver_match.url_name == 'home' %}text-primary-600 font-semibold{% endif %}">{% trans "Accueil" %}</a>
+          <div class="relative group">
+            <button class="inline-flex items-center gap-2 hover:text-primary-600 transition-colors font-medium {% if 'services' in request.resolver_match.url_name %}text-primary-600 font-semibold{% endif %}">{% trans "Nos services" %} <svg class="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.354a.75.75 0 111.02 1.1l-4.2 3.8a.75.75 0 01-1.02 0l-4.2-3.8a.75.75 0 01-.02-1.06z"/></svg></button>
+            <div class="absolute left-0 mt-2 w-[640px] rounded-2xl border border-neutral-200 bg-white shadow-xl p-6 grid grid-cols-2 gap-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100">
+              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="">
+                <div class="font-medium text-primary-800">{% trans "Data & IA" %}</div>
+                <p class="text-xs text-neutral-500 mt-1">{% trans "Valorisez vos données et accélérez la prise de décision." %}</p>
+              </a>
+              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'cloud_security' %}">
+                <div class="font-medium text-primary-800">{% trans "Cloud & Sécurité" %}</div>
+                <p class="text-xs text-neutral-500 mt-1">{% trans "Migration, zero‑trust, conformité et résilience." %}</p>
+              </a>
+              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'engineering' %}">
+                <div class="font-medium text-primary-800">{% trans "Ingénierie Logicielle" %}</div>
+                <p class="text-xs text-neutral-500 mt-1">{% trans "Logiciels fiables, scalables, maintenables." %}</p>
+              </a>
+              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'ux_research' %}">
+                <div class="font-medium text-primary-800">{% trans "UX & Recherche" %}</div>
+                <p class="text-xs text-neutral-500 mt-1">{% trans "Concevoir avec les utilisateurs, mesurer et itérer." %}</p>
+              </a>
+              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'delivery_management' %}">
+                <div class="font-medium text-primary-800">{% trans "Delivery Management" %}</div>
+                <p class="text-xs text-neutral-500 mt-1">{% trans "Pilotage agile, PMO, qualité et time‑to‑value." %}</p>
+              </a>
+              <a class="p-3 rounded-xl hover:bg-primary-50 transition-colors" href="{% url 'business_consulting' %}">
+                <div class="font-medium text-primary-800">{% trans "Conseil Métier" %}</div>
+                <p class="text-xs text-neutral-500 mt-1">{% trans "Cadrage stratégique, trajectoire et ROI." %}</p>
+              </a>
+            </div>
+          </div>
+          <a href="{% url 'insights' %}" class="hover:text-primary-600 transition-colors font-medium {% if request.resolver_match.url_name == 'insights' or request.resolver_match.url_name == 'case_study_detail' %}text-primary-600 font-semibold{% endif %}">{% trans "Insights" %}</a>
+          <a href="{% url 'careers' %}" class="hover:text-primary-600 transition-colors font-medium {% if 'careers' in request.resolver_match.url_name %}text-primary-600 font-semibold{% endif %}">{% trans "Carrières" %}</a>
+          <a href="{% url 'contact' %}" class="inline-flex items-center px-4 py-2 rounded-xl gradient-bg text-white hover:opacity-90 transition-all shadow-md hover:shadow-lg">{% trans "Nous contacter" %}</a>
+          <form action="{% url 'set_language' %}" method="post" class="ml-4">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <select name="language" class="border border-neutral-300 rounded-lg px-2 py-1 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent" onchange="this.form.submit()">
+              {% get_current_language as CURRENT %}
+              {% get_available_languages as LANGS %}
+              {% for code, name in LANGS %}
+                <option value="{{ code }}" {% if code == CURRENT %}selected{% endif %}>{{ name }}</option>
+              {% endfor %}
+            </select>
+          </form>
+        </nav>
 
+        <button id="btnMobile" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-neutral-300 hover:border-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">☰</button>
+      </div>
+    </div>
+    <!-- mobile menu amélioré -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-neutral-200 bg-white/95 backdrop-blur-sm">
+      <div class="px-4 py-4 flex flex-col gap-3 text-sm">
+        <a href="{% url 'home' %}" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100 {% if request.resolver_match.url_name == 'home' %}text-primary-600 font-semibold{% endif %}">{% trans "Accueil" %}</a>
+        <a href="{% url 'services' %}" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100 {% if 'services' in request.resolver_match.url_name %}text-primary-600 font-semibold{% endif %}">{% trans "Nos services" %}</a>
+        <a href="{% url 'insights' %}" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100 {% if request.resolver_match.url_name == 'insights' or request.resolver_match.url_name == 'case_study_detail' %}text-primary-600 font-semibold{% endif %}">{% trans "Insights" %}</a>
+        <a href="{% url 'careers' %}" class="py-2 hover:text-primary-600 transition-colors font-medium border-b border-neutral-100 {% if 'careers' in request.resolver_match.url_name %}text-primary-600 font-semibold{% endif %}">{% trans "Carrières" %}</a>
+        <a href="{% url 'contact' %}" class="mt-2 inline-flex items-center px-4 py-2 rounded-xl gradient-bg text-white w-max shadow-md">{% trans "Nous contacter" %}</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer (identique à votre code existant) -->
+  <footer class="py-16 text-sm bg-neutral-100">
+    <!-- Votre footer existant -->
+  </footer>
+
+  <!-- Scripts JavaScript -->
+  <script>
+    // Mobile menu
+    document.getElementById('btnMobile').addEventListener('click', () => {
+      const m = document.getElementById('mobileMenu');
+      m.classList.toggle('hidden');
+    });
+
+    // Animation au défilement
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    // Observer les éléments à animer
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+  {% block extra_js %}
+  {% endblock %}
 </body>
 </html>
