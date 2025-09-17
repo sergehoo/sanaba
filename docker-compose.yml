@@ -1,0 +1,134 @@
+services:
+  epidemieweb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ⛔️ Plus besoin d'exposer de port vers l'hôte, Traefik s'en charge
+    # ports:
+    #   - 5191:8000
+    volumes:
+      - .:/epidemietrackr-app/
+      - static_volume:/app/static
+      - media_volume:/app/media
+    env_file:
+      - ./.env
+    restart: always
+    depends_on:
+      epidemieDB:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    networks:
+      - default
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+#      - traefik.http.routers.epidemieweb.service=epidemieweb-svc
+      # Couvre veillesanitaire.com ET www.veillesanitaire.com
+      - traefik.http.routers.epidemieweb.rule=Host(`veillesanitaire.com`)
+      - traefik.http.routers.epidemieweb.entrypoints=websecure
+      - traefik.http.routers.epidemieweb.tls=true
+      - traefik.http.routers.epidemieweb.tls.certresolver=lets
+      - traefik.http.routers.epidemieweb.middlewares=sec-headers@docker,compress@docker,ratelimit@docker
+
+      # Service: port interne Gunicorn
+      - traefik.http.services.epidemieweb.loadbalancer.server.port=8000
+
+  epidemieDB:
+    image: postgis/postgis:16-3.4
+    platform: linux/amd64
+    restart: always
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ogah -d epidemie"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - default
+
+  adminer:
+    image: adminer
+    restart: always
+    # ⛔️ Pas de port mappé; exposé via Traefik
+    # ports:
+    #   - 6080:8080
+    networks:
+      - default
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adminer.rule=Host(`${ADMINER_HOST}`)"
+      - "traefik.http.routers.adminer.entrypoints=websecure"
+      - "traefik.http.routers.adminer.tls=true"
+      - "traefik.http.routers.adminer.tls.certresolver=lets"
+      - "traefik.http.routers.adminer.middlewares=compress@docker,sec-headers@docker"
+      - "traefik.http.services.adminer.loadbalancer.server.port=8080"
+
+networks:
+  # Réseau interne app <-> DB
+  default:
+    name: epidemietrackr_default
+  # Réseau Traefik (déjà créé par ton stack Traefik)
+  proxy:
+    external: true
+
+volumes:
+  pgdata:
+    driver: local
+  static_volume:
+  media_volume:
+
+#services:
+#
+#  epidemieweb:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - 5191:8000  # port du server : port de l'application
+#    volumes:
+#      - .:/epidemie-app/
+#    env_file:
+#      - ./.env
+#    restart: always
+#    depends_on:
+#      - epidemieDB
+#
+#  epidemieDB:
+#    image: postgis/postgis:16-3.4
+#    platform: linux/amd64
+#    restart: always
+#    environment:
+#      POSTGRES_DB: ${DB_NAME}
+#      POSTGRES_USER: ${DB_USER}
+#      POSTGRES_PASSWORD: ${DB_PASSWORD}
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+#
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 6080:8080
+#    networks:
+#      - epidemietracker_default
+#
+#networks:
+#  epidemietracker_default:
+#    external: true
+#
+#volumes:
+#  pgdata:
+#    driver: local
+#  static_volume:
+#  media_volume:
