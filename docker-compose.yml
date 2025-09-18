@@ -29,13 +29,9 @@ services:
       - traefik.docker.network=proxy
 
       # Routers (HTTP -> redir HTTPS)
-      - traefik.http.routers.sanabaweb-http.rule=Host(`sanaba.co.uk`,`www.sanaba.co.uk`)
-      - traefik.http.routers.sanabaweb-http.entrypoints=web
-      - traefik.http.routers.sanabaweb-http.middlewares=redirect-to-https@docker
-
-      # Router HTTPS
-      - traefik.http.routers.sanabaweb.rule=Host(`sanaba.co.uk`,`www.sanaba.co.uk`)
-      - traefik.http.routers.sanabaweb.entrypoints=websecure
+      - traefik.http.routers.sanabaweb-http.rule=Host(`sanaba.co.uk`)
+      - traefik.http.routers.sanabaweb-http.entrypoints=websecure
+#      - traefik.http.routers.sanabaweb-http.middlewares=redirect-to-https@docker
       - traefik.http.routers.sanabaweb.tls=true
       - traefik.http.routers.sanabaweb.tls.certresolver=lets
 
@@ -46,8 +42,8 @@ services:
       - traefik.http.services.sanabaweb.loadbalancer.server.port=8000
 
       # Middleware de redirection HTTP -> HTTPS (défini ici côté Docker)
-      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
-      - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true
+#      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+#      - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true
 
   sanabaDB:
     image: postgis/postgis:16-3.4
