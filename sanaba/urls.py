@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import path, include
 
 from django.conf import settings
@@ -30,8 +31,10 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
+
     path("", HomeView.as_view(), name="home"),
     path("admin/", admin.site.urls),
+    path("health", lambda r: HttpResponse("ok")),
 
     # Services
     path('services/', views.ServicesView.as_view(), name='services'),
