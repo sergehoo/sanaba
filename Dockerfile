@@ -27,10 +27,6 @@ ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 ENV GDAL_DATA=/usr/share/gdal
 
-# Si tu tiens à définir la lib GDAL explicitement, dé-commente :
-# RUN ln -s /usr/lib/x86_64-linux-gnu/libgdal.so /usr/lib/libgdal.so || true
-# ENV GDAL_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/libgdal.so
-
 # Dépendances Python
 COPY requirements.txt /sanaba-app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
